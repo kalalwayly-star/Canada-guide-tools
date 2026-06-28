@@ -33,4 +33,5 @@ fetch("data/categories.json")
 
     container.appendChild(card);
 });
+    })
     .catch(err => console.error("Error loading categories:", err));
