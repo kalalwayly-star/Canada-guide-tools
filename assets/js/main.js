@@ -13,25 +13,25 @@ fetch("data/categories.json")
 
         const container = document.getElementById("categories-container");
 
-       categories.forEach(cat => {
+      categories.forEach(cat => {
 
-    const card = document.createElement("div");
-    card.classList.add("category-card");
+            const card = document.createElement("div");
+            card.classList.add("category-card");
 
-    card.innerHTML = `
-        <div style="font-size:30px;">${cat.icon}</div>
-        <h3>${cat.title}</h3>
-        <p>${cat.description}</p>
-    `;
-
-    // 👉 ADD CLICK
-    card.style.cursor = "pointer";
+            card.innerHTML = `
+                <div style="font-size:30px;">${cat.icon}</div>
+                <h3>${cat.title}</h3>
+                <p>${cat.description}</p>
+            `;
+card.style.cursor = "pointer";
 
     card.addEventListener("click", () => {
         window.location.href = `pages/category.html?name=${cat.title}`;
     });
 
-    container.appendChild(card);
-});
+            container.appendChild(card);
+
+        });
+
     })
     .catch(err => console.error("Error loading categories:", err));
