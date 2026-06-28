@@ -84,3 +84,32 @@ body{
     color:white;
 
 }
+.categories{
+    padding:40px 20px;
+    text-align:center;
+}
+
+.categories h2{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+#categories-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:15px;
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.category-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.category-card:hover{
+    transform:translateY(-5px);
+}
