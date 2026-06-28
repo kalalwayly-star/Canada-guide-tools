@@ -1,1 +1,22 @@
-
+[
+  {
+    "title": "Home",
+    "link": "index.html"
+  },
+  {
+    "title": "Guides",
+    "link": "#"
+  },
+  {
+    "title": "Tools",
+    "link": "#"
+  },
+  {
+    "title": "About",
+    "link": "#"
+  },
+  {
+    "title": "Contact",
+    "link": "#"
+  }
+]
