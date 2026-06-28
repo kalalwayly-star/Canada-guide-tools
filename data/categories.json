@@ -1,1 +1,27 @@
-
+[
+  {
+    "title": "Housing",
+    "icon": "🏠",
+    "description": "Find rental guides and housing tips"
+  },
+  {
+    "title": "Jobs",
+    "icon": "💼",
+    "description": "Resume, interviews, and job search help"
+  },
+  {
+    "title": "Healthcare",
+    "icon": "❤️",
+    "description": "Health services and medical system guides"
+  },
+  {
+    "title": "Banking",
+    "icon": "🏦",
+    "description": "Open accounts and manage money safely"
+  },
+  {
+    "title": "Education",
+    "icon": "🎓",
+    "description": "Schools, colleges, and learning support"
+  }
+]
