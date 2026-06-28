@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
 
+    <header class="site-header">
+        <h1 id="category-title">Loading...</h1>
+    </header>
+
+    <main style="padding:20px;">
+        <p id="category-description"></p>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+
+        document.getElementById("category-title").textContent = name;
+        document.getElementById("category-description").textContent =
+            "More content for " + name + " will be added soon.";
+    </script>
+
+</body>
+</html>
