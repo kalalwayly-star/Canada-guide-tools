@@ -44,6 +44,16 @@ fetch("../data/articles.json")
         document.getElementById("article-summary").textContent = article.summary;
         document.getElementById("article-author").textContent = article.author;
         document.getElementById("article-time").textContent = article.readTime;
+        const contentContainer = document.getElementById("article-content");
+
+article.content.forEach(paragraph => {
+
+    const p = document.createElement("p");
+    p.textContent = paragraph;
+
+    contentContainer.appendChild(p);
+
+});
 
     });
 </script>
