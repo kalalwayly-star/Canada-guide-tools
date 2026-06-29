@@ -18,9 +18,10 @@
     <script>
         const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
-        document.getElementById("category-title").textContent = name;
-        document.getElementById("category-description").textContent =
-            "More content for " + name + " will be added soon.";
+        document.getElementById("category-title").textContent = id;
+
+document.getElementById("category-description").textContent =
+    "Loading category...";
     </script>
 
 </body>
