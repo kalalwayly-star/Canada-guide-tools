@@ -72,7 +72,11 @@ fetch("../data/categories.json")
                 <p>${article.summary}</p>
                 <small>${article.readTime} read</small>
             `;
+articleCard.style.cursor = "pointer";
 
+articleCard.addEventListener("click", () => {
+    window.location.href = `article.html?id=${article.id}`;
+});
             container.appendChild(articleCard);
 
         });
