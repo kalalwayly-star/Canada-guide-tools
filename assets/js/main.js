@@ -26,7 +26,7 @@ fetch("data/categories.json")
 card.style.cursor = "pointer";
 
     card.addEventListener("click", () => {
-        window.location.href = `pages/category.html?name=${cat.title}`;
+       window.location.href = `pages/category.html?id=${cat.id}`;
     });
 
             container.appendChild(card);
