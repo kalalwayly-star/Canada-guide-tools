@@ -113,3 +113,65 @@ body{
 .category-card:hover{
     transform:translateY(-5px);
 }
+/* ==========================
+   Hero Section
+========================== */
+
+.hero{
+    max-width:1000px;
+    margin:40px auto;
+    padding:60px 30px;
+    text-align:center;
+    background:#f8fafc;
+    border-radius:16px;
+}
+
+.hero h1{
+    font-size:2.5rem;
+    margin-bottom:15px;
+    color:#1f2937;
+}
+
+.hero p{
+    max-width:700px;
+    margin:0 auto 30px;
+    font-size:1.1rem;
+    color:#4b5563;
+    line-height:1.6;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.hero-buttons button{
+    padding:14px 24px;
+    border:none;
+    border-radius:10px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#browse-guides{
+    background:#2563eb;
+    color:white;
+}
+
+#browse-guides:hover{
+    background:#1d4ed8;
+}
+
+#browse-tools{
+    background:white;
+    border:2px solid #2563eb;
+    color:#2563eb;
+}
+
+#browse-tools:hover{
+    background:#2563eb;
+    color:white;
+}
