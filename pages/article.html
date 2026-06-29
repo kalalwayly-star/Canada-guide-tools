@@ -24,6 +24,27 @@
     <p><strong>Read Time:</strong> <span id="article-time"></span></p>
 
 </main>
+<script>
+const params = new URLSearchParams(window.location.search);
+const articleId = params.get("id");
 
+fetch("../data/articles.json")
+    .then(response => response.json())
+    .then(articles => {
+
+        const article = articles.find(item => item.id === articleId);
+
+        if (!article) {
+            document.getElementById("article-title").textContent = "Article Not Found";
+            return;
+        }
+
+        document.getElementById("article-title").textContent = article.title;
+        document.getElementById("article-summary").textContent = article.summary;
+        document.getElementById("article-author").textContent = article.author;
+        document.getElementById("article-time").textContent = article.readTime;
+
+    });
+</script>
 </body>
 </html>
