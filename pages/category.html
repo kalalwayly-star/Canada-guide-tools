@@ -17,11 +17,35 @@
 
     <script>
         const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-        document.getElementById("category-title").textContent = id;
+const categoryId = params.get("id");
 
-document.getElementById("category-description").textContent =
-    "Loading category...";
+fetch("../data/categories.json")
+    .then(response => response.json())
+    .then(categories => {
+
+        const category = categories.find(cat => cat.id === categoryId);
+
+        if (!category) {
+
+            document.getElementById("category-title").textContent = "Category Not Found";
+            document.getElementById("category-description").textContent =
+                "The requested category does not exist.";
+
+            return;
+        }
+
+        document.getElementById("category-title").textContent =
+            `${category.icon} ${category.title}`;
+
+        document.getElementById("category-description").textContent =
+            category.description;
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+    });
     </script>
 
 </body>
