@@ -1,25 +1,30 @@
 [
   {
+    "id": "housing",
     "title": "Housing",
     "icon": "🏠",
     "description": "Find rental guides and housing tips"
   },
   {
+    "id": "jobs",
     "title": "Jobs",
     "icon": "💼",
     "description": "Resume, interviews, and job search help"
   },
   {
+    "id": "healthcare",
     "title": "Healthcare",
     "icon": "❤️",
     "description": "Health services and medical system guides"
   },
   {
+    "id": "banking",
     "title": "Banking",
     "icon": "🏦",
     "description": "Open accounts and manage money safely"
   },
   {
+    "id": "education",
     "title": "Education",
     "icon": "🎓",
     "description": "Schools, colleges, and learning support"
