@@ -47,6 +47,37 @@ fetch("../data/categories.json")
 
         document.getElementById("category-description").textContent =
             category.description;
+        fetch("../data/articles.json")
+    .then(response => response.json())
+    .then(articles => {
+
+        const container = document.getElementById("articles-container");
+
+        const categoryArticles = articles.filter(article =>
+            article.category === category.id
+        );
+
+        if (categoryArticles.length === 0) {
+            container.innerHTML = "<p>No articles available yet.</p>";
+            return;
+        }
+
+        categoryArticles.forEach(article => {
+
+            const articleCard = document.createElement("div");
+            articleCard.classList.add("category-card");
+
+            articleCard.innerHTML = `
+                <h3>📄 ${article.title}</h3>
+                <p>${article.summary}</p>
+                <small>${article.readTime} read</small>
+            `;
+
+            container.appendChild(articleCard);
+
+        });
+
+    });
 
     })
     .catch(error => {
