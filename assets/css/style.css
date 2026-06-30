@@ -175,3 +175,40 @@ body{
     background:#2563eb;
     color:white;
 }
+/* ==========================
+   Search
+========================== */
+
+.search-box{
+    max-width:600px;
+    margin:30px auto;
+    position:relative;
+}
+
+#search-input{
+    width:100%;
+    padding:15px;
+    font-size:1rem;
+    border:2px solid #d1d5db;
+    border-radius:10px;
+    outline:none;
+    box-sizing:border-box;
+}
+
+#search-input:focus{
+    border-color:#2563eb;
+}
+
+#search-results{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:white;
+    border:1px solid #d1d5db;
+    border-top:none;
+    border-radius:0 0 10px 10px;
+    display:none;
+    z-index:1000;
+    overflow:hidden;
+}
