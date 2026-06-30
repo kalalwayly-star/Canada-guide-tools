@@ -35,3 +35,17 @@ card.style.cursor = "pointer";
 
     })
     .catch(err => console.error("Error loading categories:", err));
+
+const searchInput = document.getElementById("search-input");
+
+if (searchInput) {
+
+    searchInput.addEventListener("input", () => {
+
+        console.log(searchInput.value);
+
+    });
+
+}
+
+
