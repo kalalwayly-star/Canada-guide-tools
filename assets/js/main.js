@@ -67,6 +67,8 @@ if (searchInput) {
     searchInput.addEventListener("input", () => {
 
         const searchText = searchInput.value.toLowerCase().trim();
+       const resultsContainer = document.getElementById("search-results");
+       resultsContainer.innerHTML = "";
 
         const matches = allArticles.filter(article => {
             return article.title.toLowerCase().includes(searchText);
