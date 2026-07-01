@@ -69,8 +69,12 @@ if (searchInput) {
         const searchText = searchInput.value.toLowerCase().trim();
        const resultsContainer = document.getElementById("search-results");
        resultsContainer.innerHTML = "";
-
-        const matches = allArticles.filter(article => {
+       
+if (searchText === "") {
+    resultsContainer.style.display = "none";
+    return;
+}        
+       const matches = allArticles.filter(article => {
             return article.title.toLowerCase().includes(searchText);
         });
 
