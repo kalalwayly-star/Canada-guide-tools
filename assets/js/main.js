@@ -74,14 +74,32 @@ if (searchText === "") {
     resultsContainer.style.display = "none";
     return;
 }        
-       const matches = allArticles
-    .filter(article => {
-          return (
-    article.title.toLowerCase().includes(searchText) ||
-    article.summary.toLowerCase().includes(searchText) ||
-    article.content.join(" ").toLowerCase().includes(searchText)
-);
+     const matches = allArticles
+    .map(article => {
+
+        let score = 0;
+
+        const title = article.title.toLowerCase();
+        const summary = article.summary.toLowerCase();
+        const content = article.content.join(" ").toLowerCase();
+
+        if (title.includes(searchText)) {
+            score += 10;
+        }
+
+        if (summary.includes(searchText)) {
+            score += 5;
+        }
+
+        if (content.includes(searchText)) {
+            score += 2;
+        }
+
+        return { ...article, score };
+
     })
+    .filter(article => article.score > 0)
+    .sort((a, b) => b.score - a.score)
     .slice(0, 5);
 
        matches.forEach(article => {
