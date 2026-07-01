@@ -82,8 +82,14 @@ if (searchText === "") {
 
     const item = document.createElement("div");
 
-    item.textContent = article.title;
+item.innerHTML = `
+    <h4>${article.title}</h4>
+    <p>${article.summary}</p>
 
+    <small>
+        ${article.category} • ${article.readTime}
+    </small>
+`;
     item.classList.add("search-result-item");
           item.addEventListener("click", () => {
     window.location.href = `pages/article.html?id=${article.id}`;
