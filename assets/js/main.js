@@ -83,59 +83,61 @@ const searchInput = document.getElementById("search-input");
 
 if (searchInput) {
 
-    searchInput.addEventListener("input", () => {
+    searchInput.addEventListener(
+    "input",
+    debounce(() => {
 
         const searchText = searchInput.value.toLowerCase().trim();
-       const resultsContainer = document.getElementById("search-results");
-       resultsContainer.innerHTML = "";
-       
-if (searchText === "") {
-    resultsContainer.style.display = "none";
-    return;
-}        
-     const matches = allArticles
-    .map(article => {
+        const resultsContainer = document.getElementById("search-results");
 
-        let score = 0;
+        resultsContainer.innerHTML = "";
 
-        const title = article.title.toLowerCase();
-        const summary = article.summary.toLowerCase();
-        const content = article.content.join(" ").toLowerCase();
+        if (searchText === "") {
+            resultsContainer.style.display = "none";
+            return;
+        }
 
-        if (title.includes(searchText)) score += 10;
+        const matches = allArticles
+            .map(article => {
+
+                let score = 0;
+
+                const title = article.title.toLowerCase();
+                const summary = article.summary.toLowerCase();
+                const content = article.content.join(" ").toLowerCase();
+
+                if (title.includes(searchText)) score += 10;
                 if (summary.includes(searchText)) score += 5;
                 if (content.includes(searchText)) score += 2;
 
-       
-        return { ...article, score };
+                return { ...article, score };
 
-    })
-    .filter(article => article.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 5);
+            })
+            .filter(article => article.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 5);
 
-       matches.forEach(article => {
+        matches.forEach(article => {
 
-    const item = document.createElement("div");
+            const item = document.createElement("div");
 
-item.innerHTML = `
-    <h4>${highlightText(article.title, searchText)}</h4>
-    <p>${highlightText(article.summary, searchText)}</p>
+            item.innerHTML = `
+                <h4>${highlightText(article.title, searchText)}</h4>
+                <p>${highlightText(article.summary, searchText)}</p>
+                <small>${article.category} • ${article.readTime}</small>
+            `;
 
-    <small>
-        ${article.category} • ${article.readTime}
-    </small>
-`;
-    item.classList.add("search-result-item");
-          item.addEventListener("click", () => {
-    window.location.href = `pages/article.html?id=${article.id}`;
-});
+            item.classList.add("search-result-item");
 
-    resultsContainer.appendChild(item);
+            item.addEventListener("click", () => {
+                window.location.href = `pages/article.html?id=${article.id}`;
+            });
 
-});
+            resultsContainer.appendChild(item);
 
- resultsContainer.style.display = matches.length > 0 ? "block" : "none";
+        });
 
-    }, 200)};
+        resultsContainer.style.display = matches.length > 0 ? "block" : "none";
 
+    }, 200)
+);
