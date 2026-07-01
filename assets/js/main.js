@@ -1,3 +1,4 @@
+let allArticles = [];
 // Load site info
 fetch("data/site.json")
     .then(res => res.json())
