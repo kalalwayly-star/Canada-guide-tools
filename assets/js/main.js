@@ -56,10 +56,7 @@ fetch("data/articles.json")
     })
     .catch(err => console.error("Error loading articles:", err));
 
-
-/* =========================
-   SEARCH
-========================= */
+================
 function highlightText(text, searchText) {
     if (!searchText) return text;
 
@@ -67,6 +64,20 @@ function highlightText(text, searchText) {
 
     return text.replace(regex, "<mark>$1</mark>");
 }
+function debounce(func, delay) {
+    let timeout;
+
+    return function (...args) {
+        clearTimeout(timeout);
+
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+/* =========================
+   SEARCH
+========================= */
 
 const searchInput = document.getElementById("search-input");
 
