@@ -212,3 +212,12 @@ body{
     z-index:1000;
     overflow:hidden;
 }
+.search-result-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result-item:hover {
+    background: #f3f4f6;
+}
