@@ -77,9 +77,10 @@ if (searchText === "") {
        const matches = allArticles
     .filter(article => {
           return (
-            article.title.toLowerCase().includes(searchText) ||
-            article.summary.toLowerCase().includes(searchText)
-        );
+    article.title.toLowerCase().includes(searchText) ||
+    article.summary.toLowerCase().includes(searchText) ||
+    article.content.join(" ").toLowerCase().includes(searchText)
+);
     })
     .slice(0, 5);
 
