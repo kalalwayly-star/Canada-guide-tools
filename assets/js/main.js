@@ -49,10 +49,11 @@ if (searchInput) {
 
     searchInput.addEventListener("input", () => {
 
-        console.log(searchInput.value);
+    const searchText = searchInput.value.toLowerCase().trim();
 
-    });
+    console.log(searchText);
 
+});
 }
 
 
