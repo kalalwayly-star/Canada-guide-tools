@@ -14,4 +14,20 @@
       "Keep copies of all rental agreements and payment receipts for your records."
     ]
   }
+  {
+  "id": "bank-account-canada",
+  "category": "finance",
+  "title": "Opening Your First Bank Account in Canada",
+  "summary": "Learn how to open a bank account, choose the right bank, and understand debit cards, credit, and online banking.",
+  "author": "Newcomer Guides & Tools",
+  "readTime": "6 min",
+  "content": [
+    "Opening a bank account is one of the first important steps after arriving in Canada.",
+    "You can open an account at major banks like RBC, TD, Scotiabank, BMO, or CIBC.",
+    "You will usually need identification such as a passport and immigration documents.",
+    "Most banks offer free newcomer packages with no monthly fees for a limited time.",
+    "A debit card allows you to pay in stores and withdraw cash from ATMs.",
+    "Online banking helps you send money, pay bills, and check your balance easily."
+  ]
+}
 ]
