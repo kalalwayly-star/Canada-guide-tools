@@ -78,71 +78,56 @@ function debounce(func, delay) {
 /* =========================
    SEARCH
 ========================= */
+function handleSearch() {
 
-const searchInput = document.getElementById("search-input");
+    const searchText = searchInput.value.toLowerCase().trim();
 
-if (searchInput) {
+    const resultsContainer = document.getElementById("search-results");
+    resultsContainer.innerHTML = "";
 
-    searchInput.addEventListener("input", () => {
+    if (searchText.length < 1) {
+        resultsContainer.style.display = "none";
+        return;
+    }
 
-        const searchText = searchInput.value.toLowerCase().trim();
-       const resultsContainer = document.getElementById("search-results");
-       resultsContainer.innerHTML = "";
-       
-if (searchText === "") {
-    resultsContainer.style.display = "none";
-    return;
-}        
-     const matches = allArticles
-    .map(article => {
+    const matches = allArticles
+        .map(article => {
 
-        let score = 0;
+            let score = 0;
 
-        const title = article.title.toLowerCase();
-        const summary = article.summary.toLowerCase();
-        const content = article.content.join(" ").toLowerCase();
+            const title = article.title.toLowerCase();
+            const summary = article.summary.toLowerCase();
+            const content = article.content.join(" ").toLowerCase();
 
-        if (title.includes(searchText)) {
-            score += 10;
-        }
+            if (title.includes(searchText)) score += 10;
+            if (summary.includes(searchText)) score += 5;
+            if (content.includes(searchText)) score += 2;
 
-        if (summary.includes(searchText)) {
-            score += 5;
-        }
+            return { ...article, score };
 
-        if (content.includes(searchText)) {
-            score += 2;
-        }
+        })
+        .filter(a => a.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 5);
 
-        return { ...article, score };
+    matches.forEach(article => {
 
-    })
-    .filter(article => article.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 5);
+        const item = document.createElement("div");
 
-       matches.forEach(article => {
+        item.classList.add("search-result-item");
 
-    const item = document.createElement("div");
+        item.innerHTML = `
+            <h4>${highlightText(article.title, searchText)}</h4>
+            <p>${highlightText(article.summary, searchText)}</p>
+            <small>${article.category} • ${article.readTime}</small>
+        `;
 
-item.innerHTML = `
-    <h4>${highlightText(article.title, searchText)}</h4>
-    <p>${highlightText(article.summary, searchText)}</p>
+        item.addEventListener("click", () => {
+            window.location.href = `pages/article.html?id=${article.id}`;
+        });
 
-    <small>
-        ${article.category} • ${article.readTime}
-    </small>
-`;
-    item.classList.add("search-result-item");
-          item.addEventListener("click", () => {
-    window.location.href = `pages/article.html?id=${article.id}`;
-});
-
-    resultsContainer.appendChild(item);
-
-});
-
-resultsContainer.style.display = matches.length > 0 ? "block" : "none";
+        resultsContainer.appendChild(item);
     });
 
+    resultsContainer.style.display = matches.length > 0 ? "block" : "none";
 }
