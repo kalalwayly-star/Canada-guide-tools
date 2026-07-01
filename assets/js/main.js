@@ -11,7 +11,13 @@ fetch("data/site.json")
 fetch("data/categories.json")
     .then(res => res.json())
     .then(categories => {
-
+// Load all articles for search
+fetch("data/articles.json")
+    .then(res => res.json())
+    .then(articles => {
+        allArticles = articles;
+    })
+    .catch(err => console.error("Error loading articles:", err));
         const container = document.getElementById("categories-container");
 
       categories.forEach(cat => {
