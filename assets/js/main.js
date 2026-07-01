@@ -78,8 +78,9 @@ if (searchText === "") {
             return article.title.toLowerCase().includes(searchText);
         });
 
-        console.log(matches);
-
+       console.log("Search:", searchText);
+console.log("Articles:", allArticles);
+console.log("Matches:", matches);
     });
 
 }
