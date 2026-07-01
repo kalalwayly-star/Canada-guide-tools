@@ -115,8 +115,8 @@ if (searchText === "") {
     const item = document.createElement("div");
 
 item.innerHTML = `
-    <h4>${article.title}</h4>
-    <p>${article.summary}</p>
+    <h4>${highlightText(article.title, searchText)}</h4>
+    <p>${highlightText(article.summary, searchText)}</p>
 
     <small>
         ${article.category} • ${article.readTime}
