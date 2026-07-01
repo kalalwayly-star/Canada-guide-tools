@@ -137,6 +137,5 @@ item.innerHTML = `
 
  resultsContainer.style.display = matches.length > 0 ? "block" : "none";
 
-    }, 200)
-);
+    }, 200)};
 
