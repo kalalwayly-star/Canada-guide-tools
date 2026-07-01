@@ -85,6 +85,9 @@ if (searchText === "") {
     item.textContent = article.title;
 
     item.classList.add("search-result-item");
+          item.addEventListener("click", () => {
+    window.location.href = `pages/article.html?id=${article.id}`;
+});
 
     resultsContainer.appendChild(item);
 
