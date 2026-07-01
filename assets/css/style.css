@@ -221,3 +221,8 @@ body{
 .search-result-item:hover {
     background: #f3f4f6;
 }
+mark {
+    background: #fde047;
+    padding: 0 3px;
+    border-radius: 3px;
+}
