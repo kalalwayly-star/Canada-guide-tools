@@ -50,6 +50,9 @@ if (searchInput) {
     searchInput.addEventListener("input", () => {
 
     const searchText = searchInput.value.toLowerCase().trim();
+     const matches = allArticles.filter(article => {
+        return article.title.toLowerCase().includes(searchText);
+    });    
 
     console.log(searchText);
 
