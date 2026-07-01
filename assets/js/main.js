@@ -78,9 +78,19 @@ if (searchText === "") {
             return article.title.toLowerCase().includes(searchText);
         });
 
-       console.log("Search:", searchText);
-console.log("Articles:", allArticles);
-console.log("Matches:", matches);
+       matches.forEach(article => {
+
+    const item = document.createElement("div");
+
+    item.textContent = article.title;
+
+    item.classList.add("search-result-item");
+
+    resultsContainer.appendChild(item);
+
+});
+
+resultsContainer.style.display = matches.length > 0 ? "block" : "none";
     });
 
 }
