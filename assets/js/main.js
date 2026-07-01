@@ -74,9 +74,11 @@ if (searchText === "") {
     resultsContainer.style.display = "none";
     return;
 }        
-       const matches = allArticles.filter(article => {
-            return article.title.toLowerCase().includes(searchText);
-        });
+       const matches = allArticles
+    .filter(article => {
+        return article.title.toLowerCase().includes(searchText);
+    })
+    .slice(0, 5);
 
        matches.forEach(article => {
 
