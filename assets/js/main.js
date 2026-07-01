@@ -56,7 +56,10 @@ fetch("data/articles.json")
     })
     .catch(err => console.error("Error loading articles:", err));
 
-================
+
+/* =========================
+   SEARCH
+========================= */
 function highlightText(text, searchText) {
     if (!searchText) return text;
 
@@ -75,9 +78,7 @@ function debounce(func, delay) {
         }, delay);
     };
 }
-/* =========================
-   SEARCH
-========================= */
+
 function handleSearch() {
 
     const searchText = searchInput.value.toLowerCase().trim();
