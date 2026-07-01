@@ -16,6 +16,10 @@ fetch("data/articles.json")
     .then(res => res.json())
     .then(articles => {
         allArticles = articles;
+.then(articles => {
+    allArticles = articles;
+    console.log("ARTICLES LOADED:", allArticles);
+});
     })
     .catch(err => console.error("Error loading articles:", err));
         const container = document.getElementById("categories-container");
