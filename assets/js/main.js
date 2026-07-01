@@ -67,7 +67,17 @@ function highlightText(text, searchText) {
 
     return text.replace(regex, "<mark>$1</mark>");
 }
+function debounce(func, delay) {
+    let timeout;
 
+    return function (...args) {
+        clearTimeout(timeout);
+
+        timeout = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
 
 const searchInput = document.getElementById("search-input");
 
@@ -92,18 +102,11 @@ if (searchText === "") {
         const summary = article.summary.toLowerCase();
         const content = article.content.join(" ").toLowerCase();
 
-        if (title.includes(searchText)) {
-            score += 10;
-        }
+        if (title.includes(searchText)) score += 10;
+                if (summary.includes(searchText)) score += 5;
+                if (content.includes(searchText)) score += 2;
 
-        if (summary.includes(searchText)) {
-            score += 5;
-        }
-
-        if (content.includes(searchText)) {
-            score += 2;
-        }
-
+       
         return { ...article, score };
 
     })
@@ -132,8 +135,8 @@ item.innerHTML = `
 
 });
 
-resultsContainer.style.display = matches.length > 0 ? "block" : "none";
-    });
+ resultsContainer.style.display = matches.length > 0 ? "block" : "none";
 
-}
+    }, 200)
+);
 
