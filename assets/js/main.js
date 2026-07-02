@@ -159,6 +159,9 @@ document.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
+   if (event.key === "ArrowDown") {
+    console.log("Down Arrow Pressed");
+}
 
     if (event.key === "Escape") {
 
