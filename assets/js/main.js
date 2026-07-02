@@ -144,3 +144,16 @@ if (searchInput) {
     );
 
 }
+
+document.addEventListener("click", (event) => {
+
+    const resultsContainer = document.getElementById("search-results");
+
+    if (
+        !searchInput.contains(event.target) &&
+        !resultsContainer.contains(event.target)
+    ) {
+        resultsContainer.style.display = "none";
+    }
+
+});
