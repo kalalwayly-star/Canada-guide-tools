@@ -9,26 +9,74 @@
     "content": [
       "Finding your first rental home is one of the most important steps after arriving in Canada.",
       "Start your search on trusted rental websites and always compare several properties before making a decision.",
-      "Read the lease carefully before signing and make sure you understand the monthly rent, included utilities, and the length of the agreement.",
-      "Never send money before seeing the property or confirming that the landlord is legitimate. Be cautious of rental scams.",
-      "Keep copies of all rental agreements and payment receipts for your records."
+      "Read the lease agreement carefully before signing, and make sure you understand the monthly rent, included utilities, and the exact length of the contract.",
+      "Never send money or a deposit before viewing the property in person or verifying that the landlord is legitimate.",
+      "Keep copies of all rental agreements, digital communications, and payment receipts safely filed away for your records.",
+      "Be aware that landlords legally require standard verification documents such as official government identification and bank letters."
     ]
   },
-  
   {
-  "id": "bank-account-canada",
-  "category": "finance",
-  "title": "Opening Your First Bank Account in Canada",
-  "summary": "Learn how to open a bank account, choose the right bank, and understand debit cards, credit, and online banking.",
-  "author": "Newcomer Guides & Tools",
-  "readTime": "6 min",
-  "content": [
-    "Opening a bank account is one of the first important steps after arriving in Canada.",
-    "You can open an account at major banks like RBC, TD, Scotiabank, BMO, or CIBC.",
-    "You will usually need identification such as a passport and immigration documents.",
-    "Most banks offer free newcomer packages with no monthly fees for a limited time.",
-    "A debit card allows you to pay in stores and withdraw cash from ATMs.",
-    "Online banking helps you send money, pay bills, and check your balance easily."
-  ]
-}
+    "id": "bank-account-canada",
+    "category": "banking",
+    "title": "Opening Your First Bank Account in Canada",
+    "summary": "Learn how to open a bank account, choose the right bank, and understand debit cards, credit, and online banking.",
+    "author": "Newcomer Guides & Tools",
+    "readTime": "6 min",
+    "content": [
+      "Opening a bank account is one of the first important steps after arriving in Canada to secure your funds.",
+      "You can open a personal account at major national banks, credit unions, or digital financial institutions.",
+      "You will need to present two pieces of original identification, such as your foreign passport and your official immigration papers.",
+      "Most financial institutions offer newcomer packages that waive standard monthly account fees for a limited time.",
+      "A debit card allows you to make direct payments in stores and safely withdraw cash from automated teller machines.",
+      "Online banking dashboards help you send electronic transfers, settle utility bills, and monitor your balances securely."
+    ]
+  },
+  {
+    "id": "finding-jobs-canada",
+    "category": "jobs",
+    "title": "Finding Employment and Formatting Your Canadian Resume",
+    "summary": "Understand how the Canadian job market operates, format your resume correctly, and apply for roles legally.",
+    "author": "Newcomer Guides & Tools",
+    "readTime": "6 min",
+    "content": [
+      "Securing employment requires adjusting your professional materials to meet specific Canadian workplace standard layouts.",
+      "Never include personal data like your photograph, birthdate, marital status, or nationality on a Canadian resume.",
+      "Format your document in reverse-chronological order, placing your most recent employment experiences at the top.",
+      "You must secure a valid nine-digit Social Insurance Number from Service Canada before you can legally accept a payroll job.",
+      "Tailor your resume keywords specifically for every application to match the exact requirements listed in the job posting.",
+      "Prepare for interviews by researching the company's background and formatting your answers around practical examples."
+    ]
+  },
+  {
+    "id": "understanding-healthcare-canada",
+    "category": "healthcare",
+    "title": "Understanding the Canadian Universal Healthcare System",
+    "summary": "Learn how to register for public health insurance, find a family doctor, and access emergency services.",
+    "author": "Newcomer Guides & Tools",
+    "readTime": "5 min",
+    "content": [
+      "Canada provides tax-funded universal healthcare, meaning basic medical treatments at hospitals are completely free.",
+      "You must apply for a physical provincial health card from your local government to receive medical services.",
+      "Your registered family doctor is your primary contact for routine checkups, medical prescriptions, and specialist referrals.",
+      "Visit a walk-in clinic for urgent, non-life-threatening medical issues if you do not have a permanent family physician.",
+      "Hospital emergency rooms are strictly reserved for severe, sudden accidents or critical life-threatening conditions.",
+      "Basic public health insurance does not cover standard prescription drugs, routine dental cleanings, or eye exams."
+    ]
+  },
+  {
+    "id": "education-system-guide",
+    "category": "education",
+    "title": "Navigating the Canadian School and Education System",
+    "summary": "Learn how public schools are structured, how to enroll your children, and how grading works.",
+    "author": "Newcomer Guides & Tools",
+    "readTime": "5 min",
+    "content": [
+      "Public elementary and secondary schooling is completely free for all children residing permanently in Canada.",
+      "School attendance is a legal requirement for children starting from age six up to age sixteen or eighteen depending on the province.",
+      "Children are automatically assigned to attend specific neighborhood public schools based directly on their residential home address.",
+      "Parents can choose to enroll their children in standard English-language streams or French immersion learning programs.",
+      "Registration requires presenting your child's birth certificate, immigration papers, and official immunization medical records.",
+      "Post-secondary institutions like colleges and universities require tuition fees and have independent admission timelines."
+    ]
+  }
 ]
