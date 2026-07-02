@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement Converter - Newcomer Guides</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .calc-box { max-width: 500px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-family: sans-serif; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
+        button { width: 100%; padding: 12px; background: #002F6C; color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        button:hover { background: #001F4D; }
+        .result { margin-top: 20px; padding: 15px; background: #e8f5e9; border-left: 5px solid #2e7d32; font-size: 18px; font-weight: bold; display: none; }
+        .back-btn { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #002F6C; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="calc-box">
+        <a href="tools.html" class="back-btn">⬅ Back to Tools</a>
+        <h2>📐 Measurement Converter</h2>
+        
+        <div class="form-group">
+            <label>Conversion Type</label>
+            <select id="convert-type" onchange="updateLabels()">
+                <option value="f-to-c">Fahrenheit (°F) to Celsius (°C)</option>
+                <option value="sqft-to-sqm">Square Feet (sq ft) to Square Metres (m²)</option>
+                <option value="lbs-to-kg">Pounds (lbs) to Kilograms (kg)</option>
+                <option value="miles-to-km">Miles to Kilometres (km)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label id="input-label">Enter Value in Fahrenheit (°F)</label>
+            <input type="number" id="convert-input" value="32">
+        </div>
+        <button onclick="convertMeasurements()">Convert Value</button>
+        <div id="result" class="result">Result: <span id="output">0.00</span></div>
+    </div>
+
+    <script>
+        function updateLabels() {
+            const type = document.getElementById('convert-type').value;
+            const label = document.getElementById('input-label');
+            const input = document.getElementById('convert-input');
+            
+            if (type === 'f-to-c') { label.innerText = "Enter Value in Fahrenheit (°F)"; input.value = "32"; }
+            else if (type === 'sqft-to-sqm') { label.innerText = "Enter Value in Square Feet (sq ft)"; input.value = "1000"; }
+            else if (type === 'lbs-to-kg') { label.innerText = "Enter Value in Pounds (lbs)"; input.value = "150"; }
+            else if (type === 'miles-to-km') { label.innerText = "Enter Value in Miles"; input.value = "60"; }
+        }
+
+        function convertMeasurements() {
+            const type = document.getElementById('convert-type').value;
+            const val = parseFloat(document.getElementById('convert-input').value);
+            let result = 0; let unit = "";
+
+            if (type === 'f-to-c') { result = (val - 32) * 5 / 9; unit = " °C"; }
+            else if (type === 'sqft-to-sqm') { result = val * 0.092903; unit = " m²"; }
+            else if (type === 'lbs-to-kg') { result = val * 0.45359237; unit = " kg"; }
+            else if (type === 'miles-to-km') { result = val * 1.60934; unit = " km"; }
+
+            document.getElementById('output').innerText = result.toFixed(2) + unit;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
