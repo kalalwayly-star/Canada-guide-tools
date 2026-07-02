@@ -170,6 +170,16 @@ document.addEventListener("keydown", (event) => {
 
     }
  if (event.key === "ArrowDown") {
-    console.log("Down Arrow Pressed");
+
+    const results = document.querySelectorAll(".search-result-item");
+
+    if (results.length === 0) return;
+
+    if (selectedIndex < results.length - 1) {
+        selectedIndex++;
+    }
+
+    console.log("Selected:", selectedIndex);
+
 }
 });
