@@ -157,3 +157,17 @@ document.addEventListener("click", (event) => {
     }
 
 });
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+        const resultsContainer = document.getElementById("search-results");
+
+        resultsContainer.style.display = "none";
+
+        searchInput.blur();
+
+    }
+
+});
