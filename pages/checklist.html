@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newcomer Essential Checklist - Newcomer Guides</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F4F6F9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .checklist-box { 
+            max-width: 600px; 
+            margin: 40px auto; 
+            padding: 30px; 
+            background: #ffffff; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+        }
+        .back-btn { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            text-decoration: none; 
+            color: #002F6C; 
+            font-weight: bold; 
+            font-size: 14px;
+        }
+        h1 {
+            margin-top: 0;
+            color: #002F6C;
+            font-size: 24px;
+            border-bottom: 2px solid #F4F6F9;
+            padding-bottom: 10px;
+        }
+        p.intro {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+        .progress-container {
+            background-color: #E0E0E0;
+            border-radius: 8px;
+            height: 16px;
+            width: 100%;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            background-color: #2E7D32;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #002F6C;
+            margin: 20px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px dashed #DDD;
+            padding-bottom: 5px;
+        }
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 10px;
+            margin-bottom: 8px;
+            background-color: #F8F9FA;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .task-item:hover {
+            background-color: #F1F3F5;
+        }
+        .task-item input[type="checkbox"] {
+            margin-top: 3px;
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #002F6C;
+        }
+        .task-text {
+            flex: 1;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .reset-btn {
+            background: none;
+            border: none;
+            color: #C62828;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            padding: 0;
+            margin-top: 15px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checklist-box">
+        <a href="tools.html" class="back-btn">⬅ Back to Tools</a>
+        <h1>📋 Newcomer Essential Checklist</h1>
+        <p class="intro">Track your foundational settlement steps. Your progress is saved automatically in your web browser.</p>
+
+        <!-- Dynamic Progress Bar -->
+        <div class="progress-container">
+            <div id="progress" class="progress-bar"></div>
+        </div>
+
+        <!-- SECTION 1 -->
+        <div class="section-title">First 48 Hours</div>
+        
+        <label class="task-item">
+            <input type="checkbox" id="item1" onchange="updateProgress()">
+            <span class="task-text"><strong>Apply for a Social Insurance Number (SIN):</strong> Essential for legal work and government services. Visit a Service Canada centre in person.</span>
+        </label>
+        
+        <label class="task-item">
+            <input type="checkbox" id="item2" onchange="updateProgress()">
+            <span class="task-text"><strong>Get a Canadian Phone Number:</strong> Essential for job applications, banking verifications, and landlord callback communication.</span>
+        </label>
+
+        <!-- SECTION 2 -->
+        <div class="section-title">First 2 Weeks</div>
+        
+        <label class="task-item">
+            <input type="checkbox" id="item3" onchange="updateProgress()">
+            <span class="task-text"><strong>Open a Bank Account:</strong> Visit a local financial institution with your immigration papers to secure checking and debit services.</span>
+        </label>
+        
+        <label class="task-item">
+            <input type="checkbox" id="item4" onchange="updateProgress()">
+            <span class="task-text"><strong>Apply for Provincial Healthcare:</strong> Register for your physical provincial health card to receive state-funded medical treatments.</span>
+        </label>
+        
+        <label class="task-item">
+            <input type="checkbox" id="item5" onchange="updateProgress()">
+            <span class="task-text"><strong>Exchange Your Driver's License:</strong> Visit a provincial transport office to check if your foreign license can translate directly into a local license card.</span>
+        </label>
+
+        <!-- SECTION 3 -->
+        <div class="section-title">First Month</div>
+        
+        <label class="task-item">
+            <input type="checkbox" id="item6" onchange="updateProgress()">
+            <span class="task-text"><strong>Secure Temporary or Long-Term Housing:</strong> Gather income statements and sign a formal 12-month provincial lease contract.</span>
+        </label>
+        
+        <label class="task-item">
+            <input type="checkbox" id="item7" onchange="updateProgress()">
+            <span class="task-text"><strong>Enroll Children in School:</strong> Register children at the local school board associated directly with your residential zoning address.</span>
+        </label>
+        
+        <label class="task-item">
+            <input type="checkbox" id="item8" onchange="updateProgress()">
+            <span class="task-text"><strong>Format a Canadian-Style Resume:</strong> Remove profile photos, age metrics, and personal status notes to match Canadian employment regulations.</span>
+        </label>
+
+        <button class="reset-btn" onclick="resetChecklist()">Reset Checklist Progress</button>
+    </div>
+
+    <script>
+        // Run automatically when the file page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            loadSavedProgress();
+        });
+
+        // Track and compute completion state percentages
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
+            let checkedCount = 0;
+
+            checkboxes.forEach(checkbox => {
+                const parentLabel = checkbox.closest('.task-item');
+                if (checkbox.checked) {
+                    parentLabel.classList.add('completed');
+                    checkedCount++;
+                    localStorage.setItem(checkbox.id, "true"); // Save state local browser
+                } else {
+                    parentLabel.classList.remove('completed');
+                    localStorage.removeItem(checkbox.id); // Wipe entry if unchecked
+                }
+            });
+
+            const total = checkboxes.length;
+            const percentage = total > 0 ? (checkedCount / total) * 100 : 0;
+            document.getElementById('progress').style.width = percentage + "%";
+        }
+
+        // Fetch stored browser data values on restart loading scripts
+        function loadSavedProgress() {
+            const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                if (localStorage.getItem(checkbox.id) === "true") {
+                    checkbox.checked = true;
+                }
+            });
+            updateProgress(); // Refresh visible style elements metrics layout
+        }
+
+        // Wipe data states entirely
+        function resetChecklist() {
+            if (confirm("Are you sure you want to clear your checklist progress?")) {
+                const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                    localStorage.removeItem(checkbox.id);
+                });
+                updateProgress();
+            }
+        }
+    </script>
+</body>
+</html>
