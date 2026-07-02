@@ -128,8 +128,7 @@ if (searchInput) {
                     <p>${highlightText(article.summary, searchText)}</p>
                     <small>${article.category} • ${article.readTime}</small>
                 `;
-
-                item.classList.add("search-result-item");
+               item.dataset.id = article.id;
 
                 item.addEventListener("click", () => {
                     window.location.href = `pages/article.html?id=${article.id}`;
