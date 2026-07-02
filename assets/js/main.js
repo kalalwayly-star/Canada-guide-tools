@@ -197,12 +197,12 @@ if (event.key === "Enter") {
         selectedIndex = 0;
     }
 
-    const selectedArticle = allArticles.find(article => {
-        return article.title === results[selectedIndex].querySelector("h4").innerText.replace(/<[^>]*>/g, '');
-    });
+    const selectedItem = results[selectedIndex];
 
-    if (selectedArticle) {
-        window.location.href = `pages/article.html?id=${selectedArticle.id}`;
+    const articleId = selectedItem.dataset.id;
+
+    if (articleId) {
+        window.location.href = `pages/article.html?id=${articleId}`;
     }
 }
 });
