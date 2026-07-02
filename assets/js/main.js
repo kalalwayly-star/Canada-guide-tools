@@ -92,6 +92,7 @@ if (searchInput) {
             const resultsContainer = document.getElementById("search-results");
 
             resultsContainer.innerHTML = "";
+           selectedIndex = -1;
 
             if (searchText === "") {
                 resultsContainer.style.display = "none";
