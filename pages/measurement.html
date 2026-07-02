@@ -147,6 +147,8 @@
             else if (type === 'sqft-to-sqm') { label.innerText = "Enter Value in Square Feet (sq ft)"; input.value = "1000"; }
             else if (type === 'lbs-to-kg') { label.innerText = "Enter Value in Pounds (lbs)"; input.value = "150"; }
             else if (type === 'miles-to-km') { label.innerText = "Enter Value in Miles"; input.value = "60"; }
+            else if (type === 'sqm-to-sqft') { label.innerText = "Enter Value in Square Metres (m²)"; input.value = "100"; }
+
             
             // New targets
             else if (type === 'm-to-cm') { label.innerText = "Enter Value in Metres (m)"; input.value = "1"; }
@@ -175,6 +177,7 @@
             // Base math execution tree
             if (type === 'f-to-c') { result = (val - 32) * 5 / 9; unit = " °C"; }
             else if (type === 'sqft-to-sqm') { result = val * 0.092903; unit = " m²"; }
+            else if (type === 'sqm-to-sqft') { result = val * 10.76391; unit = " sq ft"; }
             else if (type === 'lbs-to-kg') { result = val * 0.45359237; unit = " kg"; }
             else if (type === 'miles-to-km') { result = val * 1.60934; unit = " km"; }
             
