@@ -188,4 +188,22 @@ document.addEventListener("keydown", (event) => {
 
     console.log("Selected:", selectedIndex);
 }
+if (event.key === "Enter") {
+
+    const results = document.querySelectorAll(".search-result-item");
+
+    if (results.length === 0) return;
+
+    if (selectedIndex === -1) {
+        selectedIndex = 0;
+    }
+
+    const selectedArticle = allArticles.find(article => {
+        return article.title === results[selectedIndex].querySelector("h4").innerText.replace(/<[^>]*>/g, '');
+    });
+
+    if (selectedArticle) {
+        window.location.href = `pages/article.html?id=${selectedArticle.id}`;
+    }
+}
 });
