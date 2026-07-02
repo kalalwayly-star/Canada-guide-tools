@@ -179,7 +179,12 @@ document.addEventListener("keydown", (event) => {
         selectedIndex++;
     }
 
-    console.log("Selected:", selectedIndex);
+    results.forEach(item => item.classList.remove("active"));
 
+    if (results[selectedIndex]) {
+        results[selectedIndex].classList.add("active");
+    }
+
+    console.log("Selected:", selectedIndex);
 }
 });
