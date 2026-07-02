@@ -131,6 +131,25 @@
             <label for="transport">Transportation / Transit Pass ($)</label>
             <input type="number" id="transport" placeholder="e.g. 150">
         </div>
+        <!-- Add these right below your transportation group -->
+<div class="form-group">
+    <label for="utilities">Utilities (Electricity/Hydro/Water) ($)</label>
+    <input type="number" id="utilities" placeholder="e.g. 100">
+</div>
+
+<div class="form-group">
+    <label for="phone">Phone & Internet ($)</label>
+    <input type="number" id="phone" placeholder="e.g. 80">
+</div>
+<div class="form-group">
+    <label for="clothing">Clothing ($)</label>
+    <input type="number" id="Clothing" placeholder="e.g. 80">
+</div>
+        <div class="form-group">
+    <label for="others">Others ($)</label>
+    <input type="number" id="others" placeholder="e.g. 80">
+</div>
+
 
         <button id="calculate-btn" onclick="calculateBudget()">Calculate Remaining Balance</button>
 
@@ -147,6 +166,12 @@
             const rentInput = document.getElementById('rent').value.trim();
             const foodInput = document.getElementById('food').value.trim();
             const transportInput = document.getElementById('transport').value.trim();
+            const utilitiesInput = document.getElementById('utilities').value.trim();
+            const phoneInput = document.getElementById('phone').value.trim();
+            const clothingInput = document.getElementById('clothing').value.trim();
+            const othersInput = document.getElementById('others').value.trim();
+
+
 
             const resultDiv = document.getElementById('result');
             const titleDiv = document.getElementById('result-title');
@@ -155,7 +180,9 @@
             resultDiv.style.display = 'block';
 
             // Validation: Stop calculations if all fields are left completely blank
-            if (!incomeInput && !rentInput && !foodInput && !transportInput) {
+            // Add the new fields to this "if" statement
+if (!incomeInput && !rentInput && !foodInput && !transportInput && !utilitiesInput && !phoneInput !clothingInput && !othersInput ) 
+ {
                 resultDiv.className = "result-box warning-box";
                 titleDiv.innerText = "⚠️ Missing Values";
                 textDiv.innerHTML = "Please enter your monthly net income and expected expenses to calculate a summary layout.";
@@ -167,8 +194,15 @@
             const rent = parseFloat(rentInput) || 0;
             const food = parseFloat(foodInput) || 0;
             const transport = parseFloat(transportInput) || 0;
+            const utilities = parseFloat(utilitiesInput) || 0;
+            const phone = parseFloat(phoneInput) || 0;
+            const clothing = parseFloat(clothingInput) || 0;
+            const others = parseFloat(othersInput) || 0;
 
-            const totalExpenses = rent + food + transport;
+
+
+// Change this line from your original code:
+const totalExpenses = rent + food + transport + utilities + phone + clothing + others;
             const balance = income - totalExpenses;
 
             // Format monetary values with commas
