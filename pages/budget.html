@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Calculator - Newcomer Guides</title>
-    <!-- Adjust this path if your main stylesheet is in a different folder -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         body {
@@ -91,6 +90,11 @@
             border-left: 5px solid #C62828;
             color: #C62828;
         }
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 5px solid #E65100;
+            color: #E65100;
+        }
         .result-title {
             font-size: 18px;
             font-weight: bold;
@@ -138,25 +142,38 @@
 
     <script>
         function calculateBudget() {
-            // Read values safely, default to 0 if field left blank
-            const income = parseFloat(document.getElementById('income').value) || 0;
-            const rent = parseFloat(document.getElementById('rent').value) || 0;
-            const food = parseFloat(document.getElementById('food').value) || 0;
-            const transport = parseFloat(document.getElementById('transport').value) || 0;
-
-            const totalExpenses = rent + food + transport;
-            const balance = income - totalExpenses;
+            // Read raw values string values
+            const incomeInput = document.getElementById('income').value.trim();
+            const rentInput = document.getElementById('rent').value.trim();
+            const foodInput = document.getElementById('food').value.trim();
+            const transportInput = document.getElementById('transport').value.trim();
 
             const resultDiv = document.getElementById('result');
             const titleDiv = document.getElementById('result-title');
             const textDiv = document.getElementById('result-text');
 
-            // Format numbers nicely with commas
+            resultDiv.style.display = 'block';
+
+            // Validation: Stop calculations if all fields are left completely blank
+            if (!incomeInput && !rentInput && !foodInput && !transportInput) {
+                resultDiv.className = "result-box warning-box";
+                titleDiv.innerText = "⚠️ Missing Values";
+                textDiv.innerHTML = "Please enter your monthly net income and expected expenses to calculate a summary layout.";
+                return;
+            }
+
+            // Convert to clean numbers safely
+            const income = parseFloat(incomeInput) || 0;
+            const rent = parseFloat(rentInput) || 0;
+            const food = parseFloat(foodInput) || 0;
+            const transport = parseFloat(transportInput) || 0;
+
+            const totalExpenses = rent + food + transport;
+            const balance = income - totalExpenses;
+
+            // Format monetary values with commas
             const formattedBalance = Math.abs(balance).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             const formattedExpenses = totalExpenses.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-            resultDiv.removeAttribute('style'); // Clear previous inline styles if any
-            resultDiv.style.display = 'block';
 
             if (balance >= 0) {
                 resultDiv.className = "result-box success-box";
