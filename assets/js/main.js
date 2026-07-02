@@ -206,3 +206,10 @@ if (event.key === "Enter") {
     }
 }
 });
+const browseToolsBtn = document.getElementById("browse-tools");
+
+if (browseToolsBtn) {
+    browseToolsBtn.addEventListener("click", () => {
+        window.location.href = "pages/tools.html";
+    });
+}
