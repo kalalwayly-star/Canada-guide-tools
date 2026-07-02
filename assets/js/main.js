@@ -1,5 +1,5 @@
 let allArticles = [];
-
+let selectedIndex = -1;
 /* =========================
    Load site info
 ========================= */
