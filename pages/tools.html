@@ -2,41 +2,160 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tools - Newcomer Guides</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools & Calculators - Newcomer Guides</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F4F6F9;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #002F6C;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #002F6C;
+            margin: 30px 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #E0E0E0;
+            padding-bottom: 5px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #EAEAEA;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 2F, 108, 0.1);
+            border-color: #002F6C;
+        }
+
+        .tool-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .tool-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .tool-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Tools</h1>
+    <div class="container">
+        <header>
+            <h1>Free Newcomer Tools</h1>
+            <p class="subtitle">Interactive calculators and checklists to help plan your new life in Canada.</p>
+        </header>
 
-    <div id="tools-container">
+        <!-- CATEGORY 1: FINANCES -->
+        <div class="category-title">💰 Finance & Housing Planning</div>
+        <div class="tools-grid">
+            <div class="tool-card" onclick="openTool('budget')">
+                <div>
+                    <div class="tool-icon">💸</div>
+                    <div class="tool-name">Budget Calculator</div>
+                    <p class="tool-desc">Track your custom monthly expenses and calculate your net savings balance.</p>
+                </div>
+            </div>
 
-        <!-- Original Tools -->
-        <div class="tool-card" onclick="openTool('budget')">
-            💰 Budget Calculator
+            <div class="tool-card" onclick="openTool('rent')">
+                <div>
+                    <div class="tool-icon">🏠</div>
+                    <div class="tool-name">Rent Affordability</div>
+                    <p class="tool-desc">See if an expected rent price fits safely within the standard Canadian 30% rule.</p>
+                </div>
+            </div>
+
+            <div class="tool-card" onclick="openTool('mortgage')">
+                <div>
+                    <div class="tool-icon">🇨🇦</div>
+                    <div class="tool-name">Mortgage Calculator</div>
+                    <p class="tool-desc">Estimate monthly property payments using Canadian semi-annual compounding laws.</p>
+                </div>
+            </div>
         </div>
 
-        <div class="tool-card" onclick="openTool('rent')">
-            🏠 Rent Affordability
-        </div>
+        <!-- CATEGORY 2: SETTLEMENT & DAILY LIFE -->
+        <div class="category-title">📋 Settlement & Daily Utilities</div>
+        <div class="tools-grid">
+            <div class="tool-card" onclick="openTool('checklist')">
+                <div>
+                    <div class="tool-icon">✔</div>
+                    <div class="tool-name">Newcomer Checklist</div>
+                    <p class="tool-desc">Track essential foundational steps like applying for your SIN and health card.</p>
+                </div>
+            </div>
 
-        <div class="tool-card" onclick="openTool('checklist')">
-            📋 Newcomer Checklist
-        </div>
+            <div class="tool-card" onclick="openTool('auto-loan')">
+                <div>
+                    <div class="tool-icon">🚗</div>
+                    <div class="tool-name">Auto Loan Calculator</div>
+                    <p class="tool-desc">Calculate monthly vehicle loan costs based on terms and down payments.</p>
+                </div>
+            </div>
 
-        <!-- New Maintenance-Free Calculators -->
-        <div class="tool-card" onclick="openTool('mortgage')">
-            🇨🇦 Mortgage Calculator
+            <div class="tool-card" onclick="openTool('measurement')">
+                <div>
+                    <div class="tool-icon">📐</div>
+                    <div class="tool-name">Measurement Converter</div>
+                    <p class="tool-desc">Convert imperial weights, distances, and area metrics into metric units.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="tool-card" onclick="openTool('auto-loan')">
-            🚗 Auto Loan Calculator
-        </div>
-
-        <div class="tool-card" onclick="openTool('measurement')">
-            📐 Measurement Converter
-        </div>
-
     </div>
 
     <script src="../assets/js/tools.js"></script>
