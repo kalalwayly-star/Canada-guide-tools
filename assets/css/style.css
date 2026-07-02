@@ -226,3 +226,7 @@ mark {
     padding: 0 3px;
     border-radius: 3px;
 }
+.search-result-item.active {
+    background-color: #f3f4f6;
+    border-left: 4px solid #3b82f6;
+}
