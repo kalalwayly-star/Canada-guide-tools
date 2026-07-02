@@ -12,4 +12,17 @@ function openTool(toolName) {
         window.location.href = "checklist.html";
     }
 
+    // New maintenance-free calculators
+    if (toolName === "mortgage") {
+        window.location.href = "mortgage.html";
+    }
+
+    if (toolName === "auto-loan") {
+        window.location.href = "auto-loan.html";
+    }
+
+    if (toolName === "measurement") {
+        window.location.href = "measurement.html";
+    }
+
 }
