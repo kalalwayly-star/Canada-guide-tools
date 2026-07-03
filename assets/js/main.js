@@ -213,3 +213,14 @@ if (browseToolsBtn) {
         window.location.href = "pages/tools.html";
     });
 }
+const browseGuidesBtn = document.getElementById("browse-guides");
+
+if (browseGuidesBtn) {
+
+    browseGuidesBtn.addEventListener("click", () => {
+
+        window.location.href = "pages/guides.html";
+
+    });
+
+}
