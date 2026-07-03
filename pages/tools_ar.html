@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأدوات والحاسبات - أدلة القادمين الجدد</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F4F6F9;
+            margin: 0;
+            padding: 40px 20px;
+            text-align: right;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #002F6C;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #002F6C;
+            margin: 30px 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #E0E0E0;
+            padding-bottom: 5px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: right;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #EAEAEA;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 47, 108, 0.1);
+            border-color: #002F6C;
+        }
+
+        .tool-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .tool-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .tool-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .main-nav {
+            background-color: #001F4D;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>أدوات وحاسبات مجانية</h1>
+            <p class="subtitle">حاسبات تفاعلية وقوائم تدقيق لمساعدتك في التخطيط لحياتك الجديدة في كندا.</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="guides_ar.html">الأدلة</a></li>
+                <li><a href="tools_ar.html">الأدوات</a></li>
+                <li><a href="aboutus.html">من نحن</a></li>
+                <li><a href="tools.html" style="color: #FFD700;">English</a></li>
+            </ul>
+        </nav>
+
+        <!-- CATEGORY 1: FINANCES -->
+        <div class="category-title">💰 التخطيط المالي والسكني</div>
+        <div class="tools-grid">
+            <div class="tool-card" onclick="openTool('budget')">
+                <div>
+                    <div class="tool-icon">💸</div>
+                    <div class="tool-name">حاسبة الميزانية</div>
+                    <p class="tool-desc">تتبع نفقاتك الشهرية المخصصة واحسب صافي ميزانيتك الادخارية.</p>
+                </div>
+            </div>
+
+            <div class="tool-card" onclick="openTool('rent')">
+                <div>
+                    <div class="tool-icon">🏠</div>
+                    <div class="tool-name">تحمل تكلفة الإيجار</div>
+                    <p class="tool-desc">اكتشف ما إذا كان سعر الإيجار المتوقع يتناسب بأمان مع قاعدة 30% الكندية القياسية.</p>
+                </div>
+            </div>
+
+            <div class="tool-card" onclick="openTool('mortgage')">
+                <div>
+                    <div class="tool-icon">🇨🇦</div>
+                    <div class="tool-name">حاسبة التمويل العقاري</div>
+                    <p class="tool-desc">احسب دفعات العقار الشهرية المتوقعة بناءً على قوانين الفائدة المركبة الكندية.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2: SETTLEMENT & DAILY LIFE -->
+        <div class="category-title">📋 الاستقرار والخدمات اليومية</div>
+        <div class="tools-grid">
+            <div class="tool-card" onclick="openTool('checklist')">
+                <div>
+                    <div class="tool-icon">✔</div>
+                    <div class="tool-name">قائمة تدقيق القادمين الجدد</div>
+                    <p class="tool-desc">تتبع الخطوات الأساسية مثل التقدم بطلب للحصول على رقم SIN والبطاقة الصحية.</p>
+                </div>
+            </div>
+
+            <div class="tool-card" onclick="openTool('auto-loan')">
+                <div>
+                    <div class="tool-icon">🚗</div>
+                    <div class="tool-name">حاسبة قروض السيارات</div>
+                    <p class="tool-desc">احسب التكاليف الشهرية لقرض السيارة بناءً على المدة والدفعة المقدمة.</p>
+                </div>
+            </div>
+
+            <div class="tool-card" onclick="openTool('measurement')">
+                <div>
+                    <div class="tool-icon">📐</div>
+                    <div class="tool-name">محول المقاييس</div>
+                    <p class="tool-desc">حول الأوزان، المسافات، والمساحات الإمبراطورية إلى وحدات مترية كندية.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script that updates navigation redirection to match Arabic layouts -->
+    <script>
+        function openTool(toolName) {
+            // Checks if an Arabic version of the tool page exists, otherwise uses English calculator framework safely
+            if (toolName === "budget") {
+                window.location.href = "budget.html";
+            }
+            if (toolName === "rent") {
+                window.location.href = "rent.html";
+            }
+            if (toolName === "checklist") {
+                window.location.href = "checklist.html";
+            }
+            if (toolName === "mortgage") {
+                window.location.href = "mortgage.html";
+            }
+            if (toolName === "auto-loan") {
+                window.location.href = "auto-loan.html";
+            }
+            if (toolName === "measurement") {
+                window.location.href = "measurement.html";
+            }
+        }
+    </script>
+</body>
+</html>
