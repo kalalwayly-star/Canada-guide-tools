@@ -78,5 +78,72 @@
       "Registration requires presenting your child's birth certificate, immigration papers, and official immunization medical records.",
       "Post-secondary institutions like colleges and universities require tuition fees and have independent admission timelines."
     ]
+  },
+  
+  {
+    "id": "how-to-immigrate-canada",
+    "category": "immigration",
+    "title": "Understanding the Main Pathways to Immigrate to Canada",
+    "summary": "An introduction to Canada's economic immigration system, provincial nomination programs, and family sponsorship streams.",
+    "author": "Newcomer Guides & Tools",
+    "readTime": "6 min",
+    "content": [
+      "Canada manages the majority of its skilled economic immigration applications through a digital system known as Express Entry.",
+      "The system handles three federal programs: the Federal Skilled Worker Program, the Federal Skilled Trades Program, and the Canadian Experience Class.",
+      "Applicants submit an online profile and are ranked using the Comprehensive Ranking System based on human capital factors.",
+      "Provinces and territories also run independent Provincial Nominee Programs to select immigrants tailored to local labor needs.",
+      "Family sponsorship allows citizens and permanent residents to sponsor their spouses, common-law partners, and dependent children.",
+      "Every pathway requires applicants to submit verified language test scores, educational credential assessments, and clean police records."
+    ]
+  },
+  {
+    "id": "what-canada-prefers",
+    "category": "immigration",
+    "title": "Candidate Profiles and Skills that Canada Prioritizes",
+    "summary": "Learn what human capital factors and specific employment categories give applicants an advantage in the selection process.",
+    "author": "Newcomer Guides & Tools",
+    "readTime": "5 min",
+    "content": [
+      "The Canadian immigration framework heavily favors candidates who possess strong language skills in English or French.",
+      "Age is an important ranking factor, with the highest selection points awarded to adults between the ages of 18 and 35.",
+      "Higher levels of completed education, such as Master's degrees or professional certificates, directly increase a candidate's ranking.",
+      "Canada uses targeted category-based selection draws to prioritize skilled workers in in-demand employment sectors.",
+      "The primary sectors prioritized include healthcare professionals, STEM occupations, skilled trades, transportation, and agriculture.",
+      "French-language proficiency outside of Quebec is highly prioritized to support Francophone community growth across the country."
+    ]
+  },
+  {
+    "id": "apply-pr-card-guide",
+    "category": "immigration",
+    "title": "How to Apply for Your First Permanent Resident Card",
+    "summary": "A step-by-step breakdown of the official IRCC onboarding process for receiving and renewing a PR card.",
+    "author": "Newcomer Guides & Tools",
+    "readTime": "5 min",
+    "content": [
+      "Your Permanent Resident card is the official proof of your legal immigration status inside Canada.",
+      "When you first arrive as a new permanent resident, IRCC automatically processes your first card using the address you provide at the border.",
+      "You must provide a valid Canadian residential address online within 180 days of landing, or your card application is canceled.",
+      "To maintain your status, you must meet the residency obligation by being physically present in Canada for at least 730 days within every 5-year period.",
+      "If your card expires or is lost, you must submit a formal renewal application online along with certified passport photos.",
+      "A PR card is strictly required for commercial travel, meaning you must possess a valid card to board flights or trains back into Canada."
+    ]
+  },
+  {
+    "id": "pharmacare-provinces-guide",
+    "category": "healthcare",
+    "title": "Prescription Pharmacare Coverage Across Canadian Provinces",
+    "summary": "Understand the rollout of national pharmacare and how individual provinces handle prescription drug coverage.",
+    "author": "Newcomer Guides & Tools",
+    "readTime": "7 min",
+    "content": [
+      "While universal healthcare covers doctor visits, routine prescription medications taken outside a hospital are not automatically free in Canada.",
+      "The federal government has initiated public drug agreements with select regions, including British Columbia, Manitoba, Prince Edward Island, and Yukon.",
+      "In these participating regions, specific diabetes medications, devices, and prescription contraceptives are covered fully by public funding.",
+      "Provinces without federal pharmacare deals utilize independent public drug programs focused primarily on low-income families and seniors.",
+      "Ontario offers the OHIP+ program, providing free prescription drug coverage for children and youth aged 24 and under who lack private insurance.",
+      "Most working Canadians rely on employee health benefit insurance plans to pay for medications not covered by their province's basic public health plan."
+    ]
   }
+]
+
 ]
