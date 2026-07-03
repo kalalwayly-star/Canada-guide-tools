@@ -230,3 +230,8 @@ mark {
     background-color: #f3f4f6;
     border-left: 4px solid #3b82f6;
 }
+.main-nav a.active {
+    background-color: #002F6C;
+    color: white;
+    border-radius: 6px;
+}
