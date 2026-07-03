@@ -235,3 +235,45 @@ mark {
     color: white;
     border-radius: 6px;
 }
+/* Categories Section Layout Container */
+#categories-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+/* Category Card Design */
+.category-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover Interactive Styling State */
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 47, 108, 0.1);
+    border-color: #002F6C;
+}
+
+/* Inside Typography Framework Components */
+.category-title {
+    color: #002F6C;
+    font-size: 18px;
+    margin: 12px 0 8px 0;
+    font-weight: bold;
+}
+
+.category-desc {
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+}
