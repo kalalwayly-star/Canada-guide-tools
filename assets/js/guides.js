@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Array of possible paths to find your categories file
     const potentialPaths = [
-        "./assets/data/categories.json",   // If guides.html is in the main root folder
-        "../assets/data/categories.json"  // If guides.html is inside a subfolder (like /pages)
+        "./data/categories.json",   // If guides.html is in the main root folder
+        "../data/categories.json"  // If guides.html is inside a subfolder (like /pages)
     ];
 
     function fetchCategories(pathIndex) {
