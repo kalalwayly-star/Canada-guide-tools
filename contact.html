@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Newcomer Guides & Tools</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F4F6F9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .site-header {
+            background-color: #002F6C;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .site-header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .site-header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .main-nav {
+            background-color: #001F4D;
+            padding: 12px 20px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .main-nav a:hover {
+            color: #E3F2FD;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Responsive Grid for Layout split */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #EAEAEA;
+        }
+
+        h2 {
+            color: #002F6C;
+            font-size: 22px;
+            margin-top: 0;
+            border-bottom: 2px solid #F4F6F9;
+            padding-bottom: 8px;
+        }
+
+        p.info-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Form Controls Styling */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #002F6C;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #002F6C;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #001F4D;
+        }
+
+        /* Info Block Elements */
+        .info-block {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .info-block strong {
+            display: block;
+            color: #002F6C;
+            font-size: 15px;
+        }
+
+        .info-block span {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .info-icon {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 18px;
+        }
+
+        /* Simulated Success Alert styling */
+        .alert-box {
+            background-color: #E8F5E9;
+            border-left: 5px solid #2E7D32;
+            color: #1B5E20;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Branding Header -->
+    <header class="site-header">
+        <div class="logo">
+            <h1>Get in Touch</h1>
+            <p>Have questions or feedback about our guides and tools? We would love to hear from you.</p>
+        </div>
+    </header>
+
+    <!-- Synced Navigation Bar Links Layout -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="guides.html">Guides</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Grid Area -->
+    <main class="container">
+        <div class="contact-grid">
+            
+            <!-- LEFT COLUMN: MESSAGE FORM -->
+            <div class="contact-card">
+                <h2>Send a Message</h2>
+                <p class="info-text">Fill out the fields below, and our team will get back to you within 24 business hours.</p>
+                
+                <div id="success-alert" class="alert-box">
+                    Thank you! Your message has been sent successfully.
+                </div>
+
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="name@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required placeholder="How can we help you?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" required placeholder="Type your questions or feedback here..."></textarea>
+                    </div>
+
+                    <button type="submit">Submit Message</button>
+                </form>
+            </div>
+
+            <!-- RIGHT COLUMN: CONTACT INFORMATION -->
+            <div class="contact-card">
+                <h2>Contact Information</h2>
+                <p class="info-text">Please note that our digital platform provides informational guides only. We cannot provide direct legal or immigration advice.</p>
+                
+                <div class="info-block">
+                    <span class="info-icon">✉</span>
+                    <strong>Email Support</strong>
+                    <span>support@yourdomain.com</span>
+                </div>
+
+                <div class="info-block">
+                    <span class="info-icon">🕒</span>
+                    <strong>Operating Hours</strong>
+                    <span>Monday to Friday: 9:00 AM – 5:00 PM (EST)</span>
+                </div>
+
+                <div class="info-block">
+                    <span class="info-icon">📍</span>
+                    <strong>Location</strong>
+                    <span>Toronto, Ontario, Canada</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Simple front-end form confirmation routine
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Stop standard page refreshing behavior
+            
+            // Display clean confirmation panel to user
+            const alertBox = document.getElementById("success-alert");
+            alertBox.style.display = "block";
+            
+            // Clear out form text fields cleanly
+            document.getElementById("contactForm").reset();
+            
+            // Smoothly auto-scroll up to success window pane view
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+
+</body>
+</html>
