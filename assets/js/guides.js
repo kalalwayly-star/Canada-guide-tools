@@ -1,61 +1,75 @@
-// Fetch categories database file entries dynamically from server paths
-fetch("../data/categories.json")
-    .then(res => {
-        if (!res.ok) {
-            throw new Error(`HTTP error! status code profile verified: ${res.status}`);
-        }
-        return res.json();
-    })
-    .then(categories => {
-        // Targets your exact HTML <div id="categories-container"> element block
-        const container = document.getElementById("categories-container");
-        
-        // Safety check to completely block script crashes if element is missing
-        if (!container) {
-            console.warn("Target element #categories-container was not found on this document page layout template.");
+// Wrap code to ensure webpage elements are ready first
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // Auto-detect root path structures based on where guides.html is located
+    const potentialPaths = [
+        "./data/categories.json",   // If guides.html is in your main root folder
+        "../data/categories.json"  // If guides.html is inside a subfolder (like pages/)
+    ];
+
+    function fetchCategories(pathIndex) {
+        if (pathIndex >= potentialPaths.length) {
+            console.error("Critical: Could not locate your root data/categories.json file at any expected path.");
             return;
         }
 
-        // Empty out any pre-existing text or template placeholders safely
-        container.textContent = "";
+        const currentPath = potentialPaths[pathIndex];
 
-        categories.forEach(cat => {
-            // Create the main card wrapping grid layout container box
-            const card = document.createElement("div");
-            card.classList.add("category-card");
-            card.style.cursor = "pointer";
+        fetch(currentPath)
+            .then(res => {
+                if (!res.ok) throw new Error("Path not found");
+                return res.json();
+            })
+            .then(categories => {
+                const container = document.getElementById("categories-container");
+                
+                // Block script execution if container element is missing
+                if (!container) {
+                    console.warn("Target element #categories-container was not found on this page.");
+                    return;
+                }
 
-            // Create and populate the visual category icon element block securely
-            const iconDiv = document.createElement("div");
-            iconDiv.classList.add("category-icon");
-            iconDiv.style.fontSize = "36px";
-            iconDiv.style.marginBottom = "10px";
-            iconDiv.textContent = cat.icon;
+                // Clear layout placeholders
+                container.textContent = "";
 
-            // Create and populate the structural header text element safely
-            const title = document.createElement("h3");
-            title.classList.add("category-title");
-            title.textContent = cat.title;
+                categories.forEach(cat => {
+                    const card = document.createElement("div");
+                    card.classList.add("category-card");
+                    card.style.cursor = "pointer";
 
-            // Create and populate the informational snippet text block safely
-            const desc = document.createElement("p");
-            desc.classList.add("category-desc");
-            desc.textContent = cat.description;
+                    const iconDiv = document.createElement("div");
+                    iconDiv.classList.add("category-icon");
+                    iconDiv.style.fontSize = "36px";
+                    iconDiv.style.marginBottom = "10px";
+                    iconDiv.textContent = cat.icon;
 
-            // Assemble child node components structurally inside the card layout parent
-            card.appendChild(iconDiv);
-            card.appendChild(title);
-            card.appendChild(desc);
+                    const title = document.createElement("h3");
+                    title.classList.add("category-title");
+                    title.textContent = cat.title;
 
-            // Set up click monitoring to execute URL parameter routing safely
-            card.addEventListener("click", () => {
-                window.location.href = `category.html?id=${encodeURIComponent(cat.id)}`;
+                    const desc = document.createElement("p");
+                    desc.classList.add("category-desc");
+                    desc.textContent = cat.description;
+
+                    card.appendChild(iconDiv);
+                    card.appendChild(title);
+                    card.appendChild(desc);
+
+                    card.addEventListener("click", () => {
+                        window.location.href = `category.html?id=${encodeURIComponent(cat.id)}`;
+                    });
+
+                    container.appendChild(card);
+                });
+
+                console.log("Success! Loaded categories cleanly from path layout: " + currentPath);
+            })
+            .catch(() => {
+                // If path fails, automatically test the next option in the array
+                fetchCategories(pathIndex + 1);
             });
+    }
 
-            // Append the fully constructed secure item block directly to the visible page container
-            container.appendChild(card);
-        });
-    })
-    .catch(err => {
-        console.error("Critical execution breakdown mapping newcomer category grids layout:", err);
-    });
+    // Initialize data mapping fetch loop
+    fetchCategories(0);
+});
