@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأدلة - أدلة وأدوات القادمين الجدد</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F4F6F9;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            color: #333;
+        }
+        .site-header {
+            background-color: #002F6C;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .site-header h1 { margin: 0; font-size: 32px; }
+        .site-header p { margin: 10px 0 0 0; font-size: 16px; color: #FFFFFF; }
+        .main-nav { background-color: #001F4D; padding: 12px 20px; }
+        .main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 25px; }
+        .main-nav a { color: white; text-decoration: none; font-weight: bold; font-size: 15px; }
+        #categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        .category-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .category-card:hover { transform: translateY(-4px); border-color: #002F6C; }
+        .category-title { color: #002F6C; font-size: 18px; margin: 12px 0 8px 0; font-weight: bold; }
+        .category-desc { color: #666; font-size: 13px; line-height: 1.4; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>أدلة القادمين الجدد العملية</h1>
+        <p>اختر قسماً لتبدأ التعلم وفهم الأنظمة الكندية.</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="guides_ar.html">الأدلة</a></li>
+            <li><a href="tools.html">الأدوات</a></li>
+            <li><a href="aboutus.html">من نحن</a></li>
+        </ul>
+    </nav>
+
+    <div id="categories-container">جاري التحميل...</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Automatically scan both common root paths to find your file safely
+            const paths = ["./data/categories_ar.json", "../data/categories_ar.json"];
+            
+            function loadCategories(index) {
+                if (index >= paths.length) return;
+                fetch(paths[index])
+                    .then(res => { if(!res.ok) throw new Error(); return res.json(); })
+                    .then(categories => {
+                        const container = document.getElementById("categories-container");
+                        container.textContent = "";
+                        categories.forEach(cat => {
+                            const card = document.createElement("div");
+                            card.classList.add("category-card");
+                            card.style.cursor = "pointer";
+
+                            const iconDiv = document.createElement("div");
+                            iconDiv.style.fontSize = "36px";
+                            iconDiv.textContent = cat.icon;
+
+                            const title = document.createElement("h3");
+                            title.classList.add("category-title");
+                            title.textContent = cat.title;
+
+                            const desc = document.createElement("p");
+                            card.classList.add("category-desc");
+                            desc.textContent = cat.description;
+
+                            card.appendChild(iconDiv);
+                            card.appendChild(title);
+                            card.appendChild(desc);
+
+                            card.addEventListener("click", () => {
+                                // Redirects cleanly to your upcoming article viewer page
+                                window.location.href = `category_ar.html?id=${encodeURIComponent(cat.id)}`;
+                            });
+                            container.appendChild(card);
+                        });
+                    })
+                    .catch(() => loadCategories(index + 1));
+            }
+            loadCategories(0);
+        });
+    </script>
+</body>
+</html>
 
