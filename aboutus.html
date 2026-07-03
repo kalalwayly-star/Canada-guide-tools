@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Newcomer Guides & Tools</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F4F6F9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .site-header {
+            background-color: #002F6C;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .site-header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .site-header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .main-nav {
+            background-color: #001F4D;
+            padding: 12px 20px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .main-nav a:hover {
+            color: #E3F2FD;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .about-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #EAEAEA;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #002F6C;
+            font-size: 22px;
+            margin-top: 0;
+            border-bottom: 2px solid #F4F6F9;
+            padding-bottom: 8px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Features Responsive Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background-color: #F8F9FA;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #002F6C;
+        }
+
+        .feature-item strong {
+            display: block;
+            color: #002F6C;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Branding Header -->
+    <header class="site-header">
+        <div class="logo">
+            <h1>About Our Platform</h1>
+            <p>Empowering immigrants with clarity, direction, and independence.</p>
+        </div>
+    </header>
+
+    <!-- Synced Navigation Bar Links Layout -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="guides.html">Guides</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        
+        <div class="about-card">
+            <h2>Our Mission</h2>
+            <p>We help newcomers build a successful life in Canada. Landing in a new country brings immense opportunity, but navigating unfamiliar systems can feel overwhelming. Our platform eliminates guessing games by providing highly practical guides and completely free interactive tools designed to simplify your transition from day one.</p>
+        </div>
+
+        <div class="about-card">
+            <h2>What We Offer</h2>
+            <p>Everything on our website is designed to be accessible, immediate, and entirely free. We do not require accounts, sign-ups, or personal information. We want you to get the data you need to make fast, reliable decisions.</p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <strong>📖 Practical Guides</strong>
+                    <p>Clear, step-by-step articles breaking down complex legal frameworks into actionable steps.</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🧮 Interactive Tools</strong>
+                    <p>Built-in calculators and dashboards designed around permanent Canadian regulations.</p>
+                </div>
+                <div class="feature-item">
+                    <strong>🛡 Safe & Privacy-Focused</strong>
+                    <p>Your checklist and budget metrics are saved directly on your browser without any tracking links.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h2>Our Vision</h2>
+            <p>We envision a Canada where every single newcomer transitions smoothly into their local community. By removing information barriers and dismantling confusing processes, we aim to unlock your full potential. Your integration, economic security, and ultimate success are our primary goals.</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
