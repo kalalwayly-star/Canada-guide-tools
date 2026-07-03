@@ -28,5 +28,11 @@
     "title": "Education",
     "icon": "🎓",
     "description": "Schools, colleges, and learning support"
+  },
+{
+    "id": "immigration",
+    "title": "Immigration",
+    "icon": "🍁",
+    "description": "Express Entry, PR applications, and pathways"
   }
 ]
