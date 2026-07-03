@@ -1,5 +1,5 @@
 // Fetch categories database file entries dynamically from server paths
-fetch("../assets/data/categories.json")
+fetch("../data/categories.json")
     .then(res => {
         if (!res.ok) {
             throw new Error(`HTTP error! status code profile verified: ${res.status}`);
