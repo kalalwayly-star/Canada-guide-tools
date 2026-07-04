@@ -1,178 +1,107 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-tag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Calculator - Newcomer Guides</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #F4F6F9;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        .calc-box { 
-            max-width: 500px; 
-            margin: 40px auto; 
-            padding: 30px; 
-            background: #ffffff; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
-        }
-        .back-btn { 
-            display: inline-block; 
-            margin-bottom: 20px; 
-            text-decoration: none; 
-            color: #002F6C; 
-            font-weight: bold; 
-            font-size: 14px;
-        }
-        h1 {
-            margin-top: 0;
-            color: #002F6C;
-            font-size: 24px;
-            border-bottom: 2px solid #F4F6F9;
-            padding-bottom: 10px;
-        }
-        .form-group { 
-            margin-bottom: 18px; 
-        }
-        .form-group label { 
-            display: block; 
-            font-weight: 600; 
-            margin-bottom: 6px; 
-            font-size: 14px;
-        }
-        .form-group input { 
-            width: 100%; 
-            padding: 12px; 
-            box-sizing: border-box; 
-            border: 1px solid #cccccc; 
-            border-radius: 6px; 
-            font-size: 16px; 
-            transition: border-color 0.2s;
-        }
-        .form-group input:focus {
-            border-color: #002F6C;
-            outline: none;
-        }
-        button { 
-            width: 100%; 
-            padding: 14px; 
-            background: #002F6C; 
-            color: white; 
-            border: none; 
-            border-radius: 6px; 
-            font-size: 16px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            transition: background 0.2s;
-            margin-top: 10px;
-        }
-        button:hover { 
-            background: #001F4D; 
-        }
-        .result-box { 
-            margin-top: 25px; 
-            padding: 20px; 
-            border-radius: 6px; 
-            display: none; 
-        }
-        .success-box {
-            background: #E8F5E9; 
-            border-left: 5px solid #2E7D32;
-            color: #1B5E20;
-        }
-        .danger-box {
-            background: #FFEBEE; 
-            border-left: 5px solid #C62828;
-            color: #C62828;
-        }
-        .warning-box {
-            background: #FFF3E0;
-            border-left: 5px solid #E65100;
-            color: #E65100;
-        }
-        .result-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        .result-text {
-            font-size: 15px;
-            line-height: 1.4;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #F4F6F9; margin: 0; padding: 20px; color: #333; }
+        .calc-box { max-width: 500px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .back-btn { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #002F6C; font-weight: bold; font-size: 14px; }
+        h1 { margin-top: 0; color: #002F6C; font-size: 24px; border-bottom: 2px solid #F4F6F9; padding-bottom: 10px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+        .form-group input { width: 100%; padding: 12px; box-sizing: border-box; border: 1px solid #cccccc; border-radius: 6px; font-size: 16px; }
+        button { width: 100%; padding: 14px; background: #002F6C; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #001F4D; }
+        .result-box { margin-top: 25px; padding: 20px; border-radius: 6px; display: none; }
+        .success-box { background: #E8F5E9; border-left: 5px solid #2E7D32; color: #1B5E20; }
+        .danger-box { background: #FFEBEE; border-left: 5px solid #C62828; color: #C62828; }
+        .warning-box { background: #FFF3E0; border-left: 5px solid #E65100; color: #E65100; }
+        
+        /* RTL layout overrides */
+        html[dir="rtl"] body { text-align: right; }
+        html[dir="rtl"] .success-box { border-right: 5px solid #2E7D32; border-left: none; }
+        html[dir="rtl"] .danger-box { border-right: 5px solid #C62828; border-left: none; }
+        html[dir="rtl"] .warning-box { border-right: 5px solid #E65100; border-left: none; }
     </style>
 </head>
 <body>
 
     <div class="calc-box">
-        <a href="tools.html" class="back-btn">⬅ Back to Tools</a>
-        <h1>Budget Calculator 💰</h1>
+        <a href="tools.html" id="lbl-back" class="back-btn">⬅ Back to Tools</a>
+        <h1 id="lbl-title">Budget Calculator 💰</h1>
 
         <div class="form-group">
-            <label for="income">Monthly Net Income ($)</label>
+            <label id="lbl-income" for="income">Monthly Net Income ($)</label>
             <input type="number" id="income" placeholder="e.g. 3000">
         </div>
-
         <div class="form-group">
-            <label for="rent">Rent / Housing ($)</label>
+            <label id="lbl-rent" for="rent">Rent / Housing ($)</label>
             <input type="number" id="rent" placeholder="e.g. 1200">
         </div>
-
         <div class="form-group">
-            <label for="food">Food & Groceries ($)</label>
+            <label id="lbl-food" for="food">Food & Groceries ($)</label>
             <input type="number" id="food" placeholder="e.g. 400">
         </div>
-
         <div class="form-group">
-            <label for="transport">Transportation / Transit Pass ($)</label>
+            <label id="lbl-transport" for="transport">Transportation / Transit Pass ($)</label>
             <input type="number" id="transport" placeholder="e.g. 150">
         </div>
-        <!-- Add these right below your transportation group -->
-<div class="form-group">
-    <label for="utilities">Utilities (Electricity/Hydro/Water) ($)</label>
-    <input type="number" id="utilities" placeholder="e.g. 100">
-</div>
 
-<div class="form-group">
-    <label for="phone">Phone & Internet ($)</label>
-    <input type="number" id="phone" placeholder="e.g. 80">
-</div>
-<div class="form-group">
-    <label for="clothing">Clothing ($)</label>
-    <input type="number" id="clothing" placeholder="e.g. 80">
-</div>
-        <div class="form-group">
-    <label for="others">Others ($)</label>
-    <input type="number" id="others" placeholder="e.g. 80">
-</div>
-
-
-        <button id="calculate-btn" onclick="calculateBudget()">Calculate Remaining Balance</button>
+        <button id="lbl-btn" onclick="calculateBudget()">Calculate Remaining Balance</button>
 
         <div id="result" class="result-box">
-            <div id="result-title" class="result-title"></div>
-            <div id="result-text" class="result-text"></div>
+            <div id="result-title" style="font-weight:bold; font-size:18px; margin-bottom:8px;"></div>
+            <div id="result-text" style="font-size:15px; line-height:1.4;"></div>
         </div>
     </div>
 
     <script>
+        let t = {}; // Global variable to store current language translations
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Get lang parameter from URL (e.g., budget.html?lang=ar)
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentLang = urlParams.get('lang') === 'ar' ? 'ar' : 'en';
+
+            // If Arabic, switch layout directions automatically
+            if (currentLang === 'ar') {
+                document.getElementById("html-tag").setAttribute("dir", "rtl");
+                document.getElementById("html-tag").setAttribute("lang", "ar");
+                document.getElementById("lbl-back").href = "tools_ar.html"; // Send back to Arabic tools hub
+            }
+
+            // Fetch the single translation text dictionary
+            const paths = ["./data/calculators_text.json", "../data/calculators_text.json"];
+            function loadText(index) {
+                if(index >= paths.length) return;
+                fetch(paths[index])
+                    .then(res => res.json())
+                    .then(data => {
+                        t = data[currentLang]; // Store selected language
+                        
+                        // Inject labels instantly into HTML elements
+                        document.getElementById("lbl-back").textContent = t.back;
+                        document.getElementById("lbl-title").textContent = t.budget_title;
+                        document.getElementById("lbl-income").textContent = t.income;
+                        document.getElementById("lbl-rent").textContent = t.rent;
+                        document.getElementById("lbl-food").textContent = t.food;
+                        document.getElementById("lbl-transport").textContent = t.transport;
+                        document.getElementById("lbl-btn").textContent = t.calculate;
+                    })
+                    .catch(() => loadText(index + 1));
+            }
+            loadText(0);
+        });
+
         function calculateBudget() {
-            // Read raw values string values
             const incomeInput = document.getElementById('income').value.trim();
             const rentInput = document.getElementById('rent').value.trim();
             const foodInput = document.getElementById('food').value.trim();
             const transportInput = document.getElementById('transport').value.trim();
-            const utilitiesInput = document.getElementById('utilities').value.trim();
-            const phoneInput = document.getElementById('phone').value.trim();
-            const clothingInput = document.getElementById('clothing').value.trim();
-            const othersInput = document.getElementById('others').value.trim();
-
-
 
             const resultDiv = document.getElementById('result');
             const titleDiv = document.getElementById('result-title');
@@ -180,44 +109,32 @@
 
             resultDiv.style.display = 'block';
 
-            // Validation: Stop calculations if all fields are left completely blank
-            // Add the new fields to this "if" statement
-if (!incomeInput && !rentInput && !foodInput && !transportInput && !utilitiesInput && !phoneInput && !clothingInput && !othersInput) 
- {
+            if (!incomeInput && !rentInput && !foodInput && !transportInput) {
                 resultDiv.className = "result-box warning-box";
-                titleDiv.innerText = "⚠️ Missing Values";
-                textDiv.innerHTML = "Please enter your monthly net income and expected expenses to calculate a summary layout.";
+                titleDiv.innerText = t.missing;
+                textDiv.innerText = t.missing_desc;
                 return;
             }
 
-            // Convert to clean numbers safely
             const income = parseFloat(incomeInput) || 0;
             const rent = parseFloat(rentInput) || 0;
             const food = parseFloat(foodInput) || 0;
             const transport = parseFloat(transportInput) || 0;
-            const utilities = parseFloat(utilitiesInput) || 0;
-            const phone = parseFloat(phoneInput) || 0;
-            const clothing = parseFloat(clothingInput) || 0;
-            const others = parseFloat(othersInput) || 0;
 
-
-
-// Change this line from your original code:
-const totalExpenses = rent + food + transport + utilities + phone + clothing + others;
+            const totalExpenses = rent + food + transport;
             const balance = income - totalExpenses;
 
-            // Format monetary values with commas
-            const formattedBalance = Math.abs(balance).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            const formattedExpenses = totalExpenses.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            const formattedBalance = Math.abs(balance).toFixed(2);
+            const formattedExpenses = totalExpenses.toFixed(2);
 
             if (balance >= 0) {
                 resultDiv.className = "result-box success-box";
-                titleDiv.innerText = "👍 Positive Monthly Surplus!";
-                textDiv.innerHTML = `Your total expenses are <strong>$${formattedExpenses}</strong>. You have <strong>$${formattedBalance}</strong> left over this month to save or spend elsewhere.`;
+                titleDiv.innerText = t.surplus;
+                textDiv.innerHTML = t.surplus_desc.replace("$EXPENSES", formattedExpenses).replace("$BALANCE", formattedBalance);
             } else {
                 resultDiv.className = "result-box danger-box";
-                titleDiv.innerText = "⚠️ Budget Deficit Detected";
-                textDiv.innerHTML = `Your total expenses are <strong>$${formattedExpenses}</strong>. You are overspending by <strong>$${formattedBalance}</strong> relative to your income. Consider reviewing housing or transit costs.`;
+                titleDiv.innerText = t.deficit;
+                textDiv.innerHTML = t.deficit_desc.replace("$EXPENSES", formattedExpenses).replace("$BALANCE", formattedBalance);
             }
         }
     </script>
