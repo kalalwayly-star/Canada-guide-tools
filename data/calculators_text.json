@@ -6,13 +6,17 @@
     "rent": "Rent / Housing ($)",
     "food": "Food & Groceries ($)",
     "transport": "Transportation / Transit Pass ($)",
+    "utilities": "Utilities (Electricity/Hydro/Water) ($)",
+    "phone": "Phone & Internet ($)",
+    "clothing": "Clothing ($)",
+    "others": "Others ($)",
     "calculate": "Calculate Remaining Balance",
     "missing": "⚠️ Missing Values",
-    "missing_desc": "Please enter your monthly net income and expected expenses.",
+    "missing_desc": "Please enter your monthly net income and expected expenses to calculate a summary layout.",
     "surplus": "👍 Positive Monthly Surplus!",
-    "surplus_desc": "Your total expenses are $EXPENSES. You have $BALANCE left over this month.",
+    "surplus_desc": "Your total expenses are <strong>$$EXPENSES</strong>. You have <strong>$$BALANCE</strong> left over this month to save or spend elsewhere.",
     "deficit": "⚠️ Budget Deficit Detected",
-    "deficit_desc": "Your total expenses are $EXPENSES. You are overspending by $BALANCE relative to your income."
+    "deficit_desc": "Your total expenses are <strong>$$EXPENSES</strong>. You are overspending by <strong>$$BALANCE</strong> relative to your income. Consider reviewing housing or transit costs."
   },
   "ar": {
     "back": "⬅ العودة إلى الأدوات",
@@ -21,12 +25,17 @@
     "rent": "الإيجار / السكن ($)",
     "food": "الطعام والبقالة ($)",
     "transport": "المواصلات / تذكرة الحافلة ($)",
+    "utilities": "المرافق (كهرباء/ماء/غاز) ($)",
+    "phone": "الهاتف والإنترنت ($)",
+    "clothing": "الملابس ($)",
+    "others": "نفقات أخرى ($)",
     "calculate": "احسب الرصيد المتبقي",
     "missing": "⚠️ قيم مفقودة",
-    "missing_desc": "يرجى إدخال دخلك الشهري والنفقات المتوقعة لحساب الملخص.",
+    "missing_desc": "يرجى إدخال دخلك الشهري والنفقات المتوقعة لحساب ملخص الميزانية.",
     "surplus": "👍 فائض شهري إيجابي!",
-    "surplus_desc": "إجمالي نفقاتك هو $EXPENSES. متبقي لديك $BALANCE هذا الشهر للادخار.",
+    "surplus_desc": "إجمالي نفقاتك هو <strong>$$EXPENSES</strong>. متبقي لديك <strong>$$BALANCE</strong> هذا الشهر للادخار أو الإنفاق في مكان آخر.",
     "deficit": "⚠️ تم رصد عجز في الميزانية",
-    "deficit_desc": "إجمالي نفقاتك هو $EXPENSES. أنت تنفق أكثر من دخلك بمقدار $BALANCE."
+    "deficit_desc": "إجمالي نفقاتك هو <strong>$$EXPENSES</strong>. أنت تنفق أكثر من دخلك بمقدار <strong>$$BALANCE</strong>. يرجى مراجعة تكاليف السكن أو المواصلات."
   }
 }
+
