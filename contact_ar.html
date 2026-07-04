@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - أدلة وأدوات القادمين الجدد</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F4F6F9;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            color: #333;
+            line-height: 1.6;
+        }
+        .site-header { background-color: #002F6C; color: white; padding: 40px 20px; text-align: center; }
+        .site-header h1 { margin: 0; font-size: 32px; }
+        .site-header p { margin: 10px 0 0 0; font-size: 16px; color: #FFFFFF; }
+        .main-nav { background-color: #001F4D; padding: 12px 20px; }
+        .main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 25px; }
+        .main-nav a { color: white; text-decoration: none; font-weight: bold; font-size: 15px; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .contact-card { background: #ffffff; border-radius: 12px; padding: 35px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #EAEAEA; }
+        h2 { color: #002F6C; font-size: 22px; margin-top: 0; border-bottom: 2px solid #F4F6F9; padding-bottom: 8px; }
+        p.info-text { font-size: 14px; color: #666; margin-bottom: 25px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; box-sizing: border-box; border: 1px solid #cccccc; border-radius: 6px; font-size: 15px; font-family: inherit; }
+        textarea { resize: vertical; min-height: 120px; }
+        button { width: 100%; padding: 14px; background: #002F6C; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        button:hover { background: #001F4D; }
+        .info-block { margin-bottom: 20px; padding-right: 30px; padding-left: 0; position: relative; }
+        .info-block strong { display: block; color: #002F6C; font-size: 15px; }
+        .info-block span { font-size: 14px; color: #444; }
+        .info-icon { position: absolute; right: 0; left: auto; top: 2px; font-size: 18px; }
+        .alert-box { background-color: #E8F5E9; border-right: 5px solid #2E7D32; border-left: none; color: #1B5E20; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <h1>تواصل معنا</h1>
+            <p>هل لديك أسئلة أو ملاحظات حول الأدلة والأدوات الخاصة بنا؟ يسعدنا جداً الاستماع إليك.</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="guides_ar.html">الأدلة</a></li>
+            <li><a href="tools_ar.html">الأدوات</a></li>
+            <li><a href="aboutus_ar.html">من نحن</a></li>
+            <li><a href="contact_ar.html">اتصل بنا</a></li>
+            <li><a href="contact.html" style="color: #FFD700;">English</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h2>إرسال رسالة</h2>
+                <p class="info-text">املأ الحقول أدناه، وسيقوم فريقنا بالرد عليك في غضون 24 ساعة عمل.</p>
+                
+                <div id="success-alert" class="alert-box">
+                    شكراً لك! تم إرسال رسالتك بنجاح.
+                </div>
+
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" required placeholder="أحمد علي">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">الموضوع</label>
+                        <input type="text" id="subject" required placeholder="كيف يمكننا مساعدتك؟">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">رسالتك</label>
+                        <textarea id="message" required placeholder="اكتب استفسارك أو ملاحظاتك هنا..."></textarea>
+                    </div>
+                    <button type="submit">إرسال الرسالة</button>
+                </form>
+            </div>
+
+            <div class="contact-card">
+                <h2>معلومات الاتصال</h2>
+                <p class="info-text">يرجى ملاحظة أن منصتنا توفر أدلة معلوماتية فقط، ولا يمكننا تقديم استشارات قانونية أو استشارات هجرة مباشرة.</p>
+                
+                <div class="info-block">
+                    <span class="info-icon">✉</span>
+                    <strong>دعم البريد الإلكتروني</strong>
+                    <span>support@yourdomain.com</span>
+                </div>
+                <div class="info-block">
+                    <span class="info-icon">🕒</span>
+                    <strong>ساعات العمل</strong>
+                    <span>الإثنين إلى الجمعة: 9:00 صباحاً – 5:00 مساءً (توقيت شرق أمريكا)</span>
+                </div>
+                <div class="info-block">
+                    <span class="info-icon">📍</span>
+                    <strong>الموقع</strong>
+                    <span>تورونتو، أونتاريو، كندا</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const alertBox = document.getElementById("success-alert");
+            alertBox.style.display = "block";
+            document.getElementById("contactForm").reset();
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
