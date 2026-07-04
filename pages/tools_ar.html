@@ -193,26 +193,27 @@
     <!-- Script that updates navigation redirection to match Arabic layouts -->
     <script>
         function openTool(toolName) {
-            // Checks if an Arabic version of the tool page exists, otherwise uses English calculator framework safely
-            if (toolName === "budget") {
-                window.location.href = "budget.html";
-            }
-            if (toolName === "rent") {
-                window.location.href = "rent.html";
-            }
-            if (toolName === "checklist") {
-                window.location.href = "checklist.html";
-            }
-            if (toolName === "mortgage") {
-                window.location.href = "mortgage.html";
-            }
-            if (toolName === "auto-loan") {
-                window.location.href = "auto-loan.html";
-            }
-            if (toolName === "measurement") {
-                window.location.href = "measurement.html";
-            }
-        }
+    // Adds ?lang=ar to the URL to instantly flip the calculator into Arabic
+    if (toolName === "budget") {
+        window.location.href = "budget.html?lang=ar";
+    }
+    if (toolName === "rent") {
+        window.location.href = "rent.html?lang=ar";
+    }
+    if (toolName === "checklist") {
+        window.location.href = "checklist.html?lang=ar";
+    }
+    if (toolName === "mortgage") {
+        window.location.href = "mortgage.html?lang=ar";
+    }
+    if (toolName === "auto-loan") {
+        window.location.href = "auto-loan.html?lang=ar";
+    }
+    if (toolName === "measurement") {
+        window.location.href = "measurement.html?lang=ar";
+    }
+}
+
     </script>
 </body>
 </html>
