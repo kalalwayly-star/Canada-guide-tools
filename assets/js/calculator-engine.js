@@ -1,169 +1,177 @@
-/* =====================================================
-   UNIVERSAL CALCULATOR ENGINE
-   Works for: rent, budget, savings, tax, etc.
-===================================================== */
+/* =========================================================
+   UNIVERSAL CALCULATOR ENGINE (PRODUCTION READY)
+   Supports: EN / AR + multiple calculators + JSON texts
+========================================================= */
 
-let TEXT = {};
-let LANG = "en";
+const CalculatorEngine = (() => {
 
-/* -------------------------------
-   LOAD TRANSLATIONS
---------------------------------*/
-async function loadTranslations() {
-    const res = await fetch("../assets/data/calculators_text.json");
-    TEXT = await res.json();
+    let LANG = "en";
+    let TEXT = {};
+    let CURRENT_CALCULATOR = null;
 
-    const urlLang = new URLSearchParams(window.location.search).get("lang");
-    LANG = urlLang === "ar" ? "ar" : "en";
+    /* =========================
+       INIT
+    ========================= */
+    async function init(options = {}) {
 
-    applyLanguage();
-}
+        // detect calculator type from HTML
+        CURRENT_CALCULATOR = document.body.dataset.calculator || "default";
 
-/* -------------------------------
-   APPLY TRANSLATION
---------------------------------*/
-function applyLanguage() {
-    document.documentElement.lang = LANG;
-    document.documentElement.dir = LANG === "ar" ? "rtl" : "ltr";
+        // detect language from URL
+        const urlLang = new URLSearchParams(window.location.search).get("lang");
+        LANG = urlLang === "ar" ? "ar" : "en";
 
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        const value = getText(key);
-        if (value) el.textContent = value;
-    });
+        // load translations
+        await loadText();
 
-    document.querySelectorAll("[data-placeholder]").forEach(el => {
-        const key = el.getAttribute("data-placeholder");
-        const value = getText(key);
-        if (value) el.placeholder = value;
-    });
-}
+        // apply UI
+        applyLanguage();
 
-/* -------------------------------
-   GET TEXT FROM JSON
---------------------------------*/
-function getText(key) {
-    const parts = key.split(".");
-    let value = TEXT?.[LANG];
+        // bind language toggle if exists
+        bindLanguageButton();
 
-    for (let part of parts) {
-        value = value?.[part];
+        return true;
     }
 
-    return value;
-}
-
-/* -------------------------------
-   FORMAT CURRENCY (CAD)
---------------------------------*/
-function formatMoney(amount) {
-    return new Intl.NumberFormat(
-        LANG === "ar" ? "ar-CA" : "en-CA",
-        {
-            style: "currency",
-            currency: "CAD"
+    /* =========================
+       LOAD JSON TEXTS
+    ========================= */
+    async function loadText() {
+        try {
+            const res = await fetch("../assets/data/calculators_text.json");
+            TEXT = await res.json();
+        } catch (err) {
+            console.error("Translation file not found", err);
         }
-    ).format(amount);
-}
-
-/* =====================================================
-   RENT CALCULATOR
-===================================================== */
-function runRentCalculator() {
-
-    const income = parseFloat(getVal("income")) || 0;
-
-    const rent = parseFloat(getVal("rent")) || 0;
-    const utilities = parseFloat(getVal("utilities")) || 0;
-    const internet = parseFloat(getVal("internet")) || 0;
-    const insurance = parseFloat(getVal("insurance")) || 0;
-    const parking = parseFloat(getVal("parking")) || 0;
-
-    const transport = parseFloat(getVal("transport")) || 0;
-    const groceries = parseFloat(getVal("groceries")) || 0;
-
-    const housing = rent + utilities + internet + insurance + parking;
-    const total = housing + transport + groceries;
-
-    const recommendedRent = (income * 0.30) / 12;
-    const remaining = income - total;
-
-    show("results");
-
-    set("recommendedRent", formatMoney(recommendedRent));
-    set("housingCost", formatMoney(housing));
-    set("remainingIncome", formatMoney(remaining));
-
-    updateMeter(housing, income);
-}
-
-/* -------------------------------
-   METER LOGIC
---------------------------------*/
-function updateMeter(housing, income) {
-
-    if (!income) return;
-
-    const percent = (housing / income) * 100;
-    const meter = document.getElementById("meterFill");
-
-    document.getElementById("meterPercent").textContent =
-        percent.toFixed(0) + "%";
-
-    let status = "";
-
-    if (percent <= 30) {
-        meter.style.width = "30%";
-        meter.style.background = "green";
-        status = "excellent";
-    } else if (percent <= 40) {
-        meter.style.width = percent + "%";
-        meter.style.background = "orange";
-        status = "warning";
-    } else {
-        meter.style.width = percent + "%";
-        meter.style.background = "red";
-        status = "danger";
     }
 
-    document.getElementById("meterStatus").textContent = status;
-}
+    /* =========================
+       APPLY LANGUAGE
+    ========================= */
+    function applyLanguage() {
 
-/* -------------------------------
-   HELPERS
---------------------------------*/
-function getVal(id) {
-    return document.getElementById(id)?.value;
-}
+        document.documentElement.lang = LANG;
+        document.documentElement.dir = LANG === "ar" ? "rtl" : "ltr";
 
-function set(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value;
-}
+        const dict = TEXT?.[LANG] || {};
 
-function show(id) {
-    const el = document.getElementById(id);
-    if (el) el.classList.remove("hidden");
-}
+        // TEXT nodes
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            const value = get(dict, key);
+            if (value) el.innerText = value;
+        });
 
-/* -------------------------------
-   INIT
---------------------------------*/
-document.addEventListener("DOMContentLoaded", () => {
+        // PLACEHOLDERS
+        document.querySelectorAll("[data-placeholder]").forEach(el => {
+            const key = el.getAttribute("data-placeholder");
+            const value = get(dict, key);
+            if (value) el.placeholder = value;
+        });
+    }
 
-    loadTranslations().then(() => {
+    /* =========================
+       GET NESTED VALUE
+    ========================= */
+    function get(obj, path) {
+        return path.split(".").reduce((acc, part) => acc && acc[part], obj);
+    }
 
-        const page = document.body.dataset.calculator;
+    /* =========================
+       LANGUAGE TOGGLE
+    ========================= */
+    function bindLanguageButton() {
 
-        if (page === "rent") {
-            document.getElementById("calculateBtn")
-                .addEventListener("click", runRentCalculator);
-        }
+        const btn = document.getElementById("languageBtn");
+        if (!btn) return;
 
-        if (page === "budget") {
-            // later we add budget engine here
-        }
+        btn.addEventListener("click", () => {
 
-    });
+            LANG = (LANG === "en") ? "ar" : "en";
 
-});
+            // update URL (no reload)
+            const newUrl = `${window.location.pathname}?lang=${LANG}`;
+            window.history.replaceState({}, "", newUrl);
+
+            applyLanguage();
+        });
+    }
+
+    /* =========================
+       FORMAT MONEY (CAD)
+    ========================= */
+    function formatMoney(value) {
+
+        return new Intl.NumberFormat(
+            LANG === "ar" ? "ar-CA" : "en-CA",
+            {
+                style: "currency",
+                currency: "CAD"
+            }
+        ).format(value);
+    }
+
+    /* =========================
+       GET INPUT VALUE
+    ========================= */
+    function getValue(id) {
+        const el = document.getElementById(id);
+        return el ? parseFloat(el.value) || 0 : 0;
+    }
+
+    /* =========================
+       SET TEXT
+    ========================= */
+    function setText(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.innerText = value;
+    }
+
+    /* =========================
+       SHOW ELEMENT
+    ========================= */
+    function show(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove("hidden");
+    }
+
+    /* =========================
+       HIDE ELEMENT
+    ========================= */
+    function hide(id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.add("hidden");
+    }
+
+    /* =========================
+       SIMPLE ALERT SYSTEM
+    ========================= */
+    function setResult(type, titleId, textId, title, text) {
+
+        const box = document.getElementById("result");
+
+        if (!box) return;
+
+        box.className = `result-box ${type}`;
+        box.style.display = "block";
+
+        setText(titleId, title);
+        setText(textId, text);
+    }
+
+    /* =========================
+       EXPORT API
+    ========================= */
+    return {
+        init,
+        getValue,
+        setText,
+        show,
+        hide,
+        formatMoney,
+        setResult,
+        get lang() { return LANG; },
+        get calculator() { return CURRENT_CALCULATOR; }
+    };
+
+})();
