@@ -1,0 +1,32 @@
+{
+  "en": {
+    "back": "⬅ Back to Tools",
+    "budget_title": "Budget Calculator 💰",
+    "income": "Monthly Net Income ($)",
+    "rent": "Rent / Housing ($)",
+    "food": "Food & Groceries ($)",
+    "transport": "Transportation / Transit Pass ($)",
+    "calculate": "Calculate Remaining Balance",
+    "missing": "⚠️ Missing Values",
+    "missing_desc": "Please enter your monthly net income and expected expenses.",
+    "surplus": "👍 Positive Monthly Surplus!",
+    "surplus_desc": "Your total expenses are $EXPENSES. You have $BALANCE left over this month.",
+    "deficit": "⚠️ Budget Deficit Detected",
+    "deficit_desc": "Your total expenses are $EXPENSES. You are overspending by $BALANCE relative to your income."
+  },
+  "ar": {
+    "back": "⬅ العودة إلى الأدوات",
+    "budget_title": "حاسبة الميزانية 💰",
+    "income": "صافي الدخل الشهري ($)",
+    "rent": "الإيجار / السكن ($)",
+    "food": "الطعام والبقالة ($)",
+    "transport": "المواصلات / تذكرة الحافلة ($)",
+    "calculate": "احسب الرصيد المتبقي",
+    "missing": "⚠️ قيم مفقودة",
+    "missing_desc": "يرجى إدخال دخلك الشهري والنفقات المتوقعة لحساب الملخص.",
+    "surplus": "👍 فائض شهري إيجابي!",
+    "surplus_desc": "إجمالي نفقاتك هو $EXPENSES. متبقي لديك $BALANCE هذا الشهر للادخار.",
+    "deficit": "⚠️ تم رصد عجز في الميزانية",
+    "deficit_desc": "إجمالي نفقاتك هو $EXPENSES. أنت تنفق أكثر من دخلك بمقدار $BALANCE."
+  }
+}
