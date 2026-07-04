@@ -8,6 +8,24 @@
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/rent.css">
+    <style>
+        /* Essential styles to ensure layout and animations work beautifully */
+        .hidden { display: none !important; }
+        .meter { background: #E2E8F0; border-radius: 9999px; height: 16px; width: 100%; overflow: hidden; margin: 12px 0; }
+        .meter-fill { height: 100%; width: 0%; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease; }
+        .meter-info { display: flex; justify-content: space-between; font-weight: bold; font-size: 14px; }
+        
+        /* Status Colors */
+        .status-safe { color: #16A34A; background-color: #16A34A !important; }
+        .status-warning { color: #D97706; background-color: #D97706 !important; }
+        .status-danger { color: #DC2626; background-color: #DC2626 !important; }
+
+        /* RTL Layout Adaptations */
+        html[dir="rtl"] .top-bar { flex-direction: row-reverse; }
+        html[dir="rtl"] table { width: 100%; text-align: right; }
+        html[dir="rtl"] td { padding: 8px 0 8px 12px; }
+        html[dir="rtl"] td:last-child { text-align: left; }
+    </style>
 </head>
 
 <body>
@@ -16,13 +34,13 @@
 
     <!-- ================= HEADER ================= -->
 
-    <div class="top-bar">
+    <div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
 
         <a href="tools.html" class="back-btn" id="backBtn">
             ← Back to Tools
         </a>
 
-        <button id="languageBtn" class="language-btn">
+        <button id="languageBtn" class="language-btn" type="button">
             العربية
         </button>
 
@@ -35,17 +53,14 @@
         </h1>
 
         <p id="introText">
-
-            Estimate whether your housing costs fit your budget and
-            discover how much rent you can comfortably afford in Canada.
-
+            Estimate whether your housing costs fit your budget and discover how much rent you can comfortably afford in Canada.
         </p>
 
     </header>
 
     <!-- ================= CALCULATOR ================= -->
 
-    <form id="rentForm">
+    <form id="rentForm" onsubmit="event.preventDefault(); calculateBudget();">
 
         <section class="card">
 
@@ -63,11 +78,11 @@
 
                     <select id="incomeType">
 
-                        <option value="annual">
+                        <option value="annual" id="optAnnual">
                             Annual Income
                         </option>
 
-                        <option value="monthly">
+                        <option value="monthly" id="optMonthly">
                             Monthly Income
                         </option>
 
@@ -84,7 +99,9 @@
                     <input
                         type="number"
                         id="income"
-                        placeholder="50000">
+                        placeholder="50000"
+                        min="0"
+                        step="any">
 
                 </div>
 
@@ -104,27 +121,27 @@
 
                 <div class="form-group">
                     <label id="rentLabel">Monthly Rent</label>
-                    <input type="number" id="rent">
+                    <input type="number" id="rent" placeholder="0" min="0" step="any">
                 </div>
 
                 <div class="form-group">
                     <label id="utilitiesLabel">Utilities</label>
-                    <input type="number" id="utilities">
+                    <input type="number" id="utilities" placeholder="0" min="0" step="any">
                 </div>
 
                 <div class="form-group">
                     <label id="internetLabel">Internet</label>
-                    <input type="number" id="internet">
+                    <input type="number" id="internet" placeholder="0" min="0" step="any">
                 </div>
 
                 <div class="form-group">
                     <label id="insuranceLabel">Tenant Insurance</label>
-                    <input type="number" id="insurance">
+                    <input type="number" id="insurance" placeholder="0" min="0" step="any">
                 </div>
 
                 <div class="form-group">
                     <label id="parkingLabel">Parking</label>
-                    <input type="number" id="parking">
+                    <input type="number" id="parking" placeholder="0" min="0" step="any">
                 </div>
 
             </div>
@@ -136,9 +153,7 @@
         <section class="card">
 
             <h2 id="expenseHeading">
-
                 Other Monthly Expenses
-
             </h2>
 
             <div class="grid">
@@ -148,7 +163,7 @@
                         Transportation
                     </label>
 
-                    <input type="number" id="transport">
+                    <input type="number" id="transport" placeholder="0" min="0" step="any">
                 </div>
 
                 <div class="form-group">
@@ -157,7 +172,7 @@
                         Groceries
                     </label>
 
-                    <input type="number" id="groceries">
+                    <input type="number" id="groceries" placeholder="0" min="0" step="any">
 
                 </div>
 
@@ -168,11 +183,10 @@
         <!-- ================= BUTTON ================= -->
 
         <button
+            type="submit"
             class="calculate-btn"
             id="calculateBtn">
-
             Calculate Budget
-
         </button>
 
     </form>
@@ -192,9 +206,7 @@
                 </h3>
 
                 <p id="recommendedRent" class="big-number">
-
                     $0
-
                 </p>
 
             </div>
@@ -202,17 +214,13 @@
             <div class="result-card">
 
                 <h3 id="housingCostTitle">
-
                     Total Housing Cost
-
                 </h3>
 
                 <p
                     id="housingCost"
                     class="big-number">
-
                     $0
-
                 </p>
 
             </div>
@@ -220,17 +228,13 @@
             <div class="result-card">
 
                 <h3 id="remainingTitle">
-
                     Remaining Monthly Income
-
                 </h3>
 
                 <p
                     id="remainingIncome"
                     class="big-number">
-
                     $0
-
                 </p>
 
             </div>
@@ -242,9 +246,7 @@
         <div class="meter-card">
 
             <h3 id="meterHeading">
-
                 Housing Affordability
-
             </h3>
 
             <div class="meter">
@@ -252,7 +254,6 @@
                 <div
                     id="meterFill"
                     class="meter-fill">
-
                 </div>
 
             </div>
@@ -260,15 +261,11 @@
             <div class="meter-info">
 
                 <span id="meterPercent">
-
                     0%
-
                 </span>
 
                 <span id="meterStatus">
-
                     -
-
                 </span>
 
             </div>
@@ -280,9 +277,7 @@
         <div class="summary-card">
 
             <h3 id="summaryHeading">
-
                 Monthly Budget Summary
-
             </h3>
 
             <table>
@@ -312,15 +307,11 @@
                 <tr class="remaining-row">
 
                     <td id="sumRemaining">
-
                         Remaining
-
                     </td>
 
                     <td id="sumRemainingValue">
-
                         $0
-
                     </td>
 
                 </tr>
@@ -338,51 +329,39 @@
     <section class="tips card">
 
         <h2 id="tipsHeading">
-
             Tips for Newcomers
-
         </h2>
 
         <ul id="tipsList">
-
-            <li>Keep housing costs below 30% of your gross income whenever possible.</li>
-
-            <li>Utilities may not be included in the rent.</li>
-
-            <li>Always read the lease carefully before signing.</li>
-
-            <li>Tenant insurance is inexpensive and highly recommended.</li>
-
-            <li>Save money every month for emergencies.</li>
-
+            <!-- Dynamic elements injected here -->
         </ul>
 
     </section>
 
     <!-- ================= DISCLAIMER ================= -->
 
-    <section class="disclaimer">
+    <section class="disclaimer" style="margin-top: 30px; font-size: 13px; opacity: 0.8; line-height: 1.5;">
 
         <h3 id="disclaimerHeading">
-
             Disclaimer
-
         </h3>
 
         <p id="disclaimerText">
-
-            This calculator provides estimates only and should not be
-            considered financial advice. Actual affordability depends on
-            taxes, debts, family size and other living expenses.
-
+            This calculator provides estimates only and should not be considered financial advice. Actual affordability depends on your complete unique spending patterns, tax deductions, and lifestyle factors.
         </p>
 
     </section>
 
 </div>
 
-<script src="../assets/js/rent.js"></script>
+<!-- ================= TRANSLATION ENGINE & CALCULATOR ENGINE ================= -->
+<script>
+    // 1. Language translation database dictionary object
+    const translations = {
+        en: {
+            pageTitle: "Rent Affordability Calculator | Newcomer Guides & Tools",
+            backBtn: "← Back to Tools",
+            languageBtn: "العربية",
+            mainTitle: "Rent Affordability Calculator",
 
-</body>
-</html>
 
