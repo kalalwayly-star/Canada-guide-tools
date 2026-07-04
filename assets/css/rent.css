@@ -1,18 +1,18 @@
-/* ================================
-   RENT CALCULATOR STYLES
-================================ */
+/* =========================================
+   RENT CALCULATOR - PROFESSIONAL UI
+========================================= */
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: #F4F6F9;
     margin: 0;
     padding: 20px;
-    color: #333;
+    color: #1f2937;
 }
 
-/* MAIN CONTAINER */
+/* MAIN WRAPPER */
 .rent-container {
-    max-width: 900px;
+    max-width: 980px;
     margin: auto;
 }
 
@@ -21,13 +21,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .back-btn {
     text-decoration: none;
     color: #002F6C;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 14px;
 }
 
@@ -35,24 +35,232 @@ body {
     background: #002F6C;
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 8px 14px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .hero h1 {
-    margin: 0;
+    margin: 0 0 8px 0;
+    font-size: 24px;
     color: #002F6C;
 }
 
 .hero p {
-   
+    margin: 0;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* CARD SYSTEM */
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+/* SECTION TITLE */
+.card h2 {
+    margin: 0 0 14px 0;
+    font-size: 18px;
+    color: #002F6C;
+}
+
+/* ===== GRID FIX (IMPORTANT PART) ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* FORM GROUP */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* LABEL */
+label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+/* INPUTS */
+input,
+select {
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #002F6C;
+    box-shadow: 0 0 0 3px rgba(0,47,108,0.1);
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #002F6C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #001f4d;
+}
+
+/* ===== RESULTS ===== */
+.results {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* RESULT GRID */
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+/* RESULT CARD */
+.result-card {
+    background: white;
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.result-card h3 {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.big-number {
+    font-size: 22px;
+    font-weight: 700;
+    color: #002F6C;
+}
+
+/* ===== METER ===== */
+.meter-card {
+    background: white;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.meter {
+    width: 100%;
+    height: 14px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.meter-fill {
+    height: 100%;
+    width: 0%;
+    transition: 0.4s;
+    background: green;
+}
+
+.meter-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* ===== SUMMARY TABLE ===== */
+.summary-card {
+    background: white;
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.summary-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.summary-card td {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.remaining-row td {
+    font-weight: bold;
+    color: #002F6C;
+}
+
+/* ===== TIPS ===== */
+.tips {
+    background: white;
+    padding: 18px;
+    border-radius: 14px;
+    margin-top: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.tips ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.tips li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* ===== RTL SUPPORT ===== */
+html[dir="rtl"] .meter-info {
+    direction: rtl;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
