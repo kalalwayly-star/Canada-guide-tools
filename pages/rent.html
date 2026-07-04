@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-tag" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rent Affordability Calculator - Newcomer Guides</title>
+    <title id="page-title">Rent Affordability Calculator - Newcomer Guides</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         body {
@@ -21,13 +21,31 @@
             border-radius: 12px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
         }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
         .back-btn { 
-            display: inline-block; 
-            margin-bottom: 20px; 
             text-decoration: none; 
             color: #002F6C; 
             font-weight: bold; 
             font-size: 14px;
+        }
+        .lang-btn {
+            background: #002F6C;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            width: auto;
+        }
+        .lang-btn:hover {
+            background: #001f4d;
         }
         h1 {
             margin-top: 0;
@@ -64,118 +82,155 @@
             border-color: #002F6C;
             outline: none;
         }
-        button { 
-            width: 100%; 
-            padding: 14px; 
-            background: #002F6C; 
-            color: white; 
-            border: none; 
-            border-radius: 6px; 
-            font-size: 16px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            transition: background 0.2s;
-            margin-top: 10px;
-        }
-        button:hover { 
-            background: #001F4D; 
-        }
-        .result-box { 
-            margin-top: 25px; 
-            padding: 20px; 
-            border-radius: 6px; 
-            display: none; 
-        }
-        .success-box {
-            background: #E8F5E9; 
-            border-left: 5px solid #2E7D32;
-            color: #1B5E20;
-        }
-        .danger-box {
-            background: #FFEBEE; 
-            border-left: 5px solid #C62828;
-            color: #C62828;
-        }
-        .warning-box {
-            background: #FFF3E0;
-            border-left: 5px solid #E65100;
-            color: #E65100;
-        }
-        .result-title {
-            font-size: 18px;
+        .submit-btn { 
+            width: 100%;
+            background: #002F6C;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 16px;
             font-weight: bold;
-            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
         }
-        .result-text {
+        .submit-btn:hover {
+            background: #001f4d;
+        }
+        .result-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: #EBF3FC;
+            border-radius: 4px;
+            display: none;
+        }
+        /* Dynamic borders based on text direction */
+        html[dir="ltr"] .result-box { border-left: 4px solid #002F6C; border-right: none; }
+        html[dir="rtl"] .result-box { border-right: 4px solid #002F6C; border-left: none; }
+
+        .result-box p {
+            margin: 5px 0;
             font-size: 15px;
-            line-height: 1.4;
+        }
+        .result-box .amount {
+            font-size: 20px;
+            font-weight: bold;
+            color: #002F6C;
         }
     </style>
 </head>
 <body>
 
     <div class="calc-box">
-        <a href="tools.html" class="back-btn">⬅ Back to Tools</a>
-        <h1>Rent Affordability Calculator 🏠</h1>
-        <p class="intro">Canadian landlords generally look for renters whose monthly rent takes up 30% or less of their household income.</p>
-
-        <div class="form-group">
-            <label for="monthly-income">Total Monthly Household Income ($)</label>
-            <input type="number" id="monthly-income" placeholder="e.g. 4000">
+        <div class="top-bar">
+            <a href="index.html" class="back-btn" id="back-btn">← Back to Guides</a>
+            <button class="lang-btn" id="lang-toggle" onclick="toggleLanguage()">العربية</button>
         </div>
-
-        <div class="form-group">
-            <label for="expected-rent">Expected Monthly Rent ($)</label>
-            <input type="number" id="expected-rent" placeholder="e.g. 1500">
-        </div>
-
-        <button id="calculate-btn" onclick="calculateRentAffordability()">Check Affordability Status</button>
+        
+        <h1 id="calc-heading">Rent Affordability Calculator</h1>
+        <p class="intro" id="calc-intro">Find out how much you can comfortably spend on monthly rent based on the standard 30% affordability rule.</p>
+        
+        <form id="calc-form" onsubmit="calculateRent(event)">
+            <div class="form-group">
+                <label for="income" id="label-income">Annual Gross Income ($)</label>
+                <input type="number" id="income" placeholder="e.g. 50000" required min="0">
+            </div>
+            
+            <button type="submit" class="submit-btn" id="btn-submit">Calculate</button>
+        </form>
 
         <div id="result" class="result-box">
-            <div id="result-title" class="result-title"></div>
-            <div id="result-text" class="result-text"></div>
+            <p id="result-text-1">Based on your income, your recommended maximum monthly rent is:</p>
+            <p class="amount" id="result-amount">$0.00</p>
+            <p id="result-text-2" style="font-size: 12px; color: #666; margin-top: 10px;">This budget allocates 30% of your pre-tax income toward housing costs.</p>
         </div>
     </div>
 
     <script>
-        function calculateRentAffordability() {
-            const incomeInput = document.getElementById('monthly-income').value.trim();
-            const rentInput = document.getElementById('expected-rent').value.trim();
-
-            const resultDiv = document.getElementById('result');
-            const titleDiv = document.getElementById('result-title');
-            const textDiv = document.getElementById('result-text');
-
-            resultDiv.style.display = 'block';
-
-            // Validation: Ensure fields aren't blank or zero
-            if (!incomeInput || !rentInput || parseFloat(incomeInput) <= 0 || parseFloat(rentInput) <= 0) {
-                resultDiv.className = "result-box warning-box";
-                titleDiv.innerText = "⚠️ Invalid Inputs";
-                textDiv.innerHTML = "Please enter positive values for both income and expected rent properties.";
-                return;
+        const translations = {
+            en: {
+                dir: "ltr",
+                htmlLang: "en",
+                title: "Rent Affordability Calculator - Newcomer Guides",
+                backBtn: "← Back to Guides",
+                langToggle: "العربية",
+                heading: "Rent Affordability Calculator",
+                intro: "Find out how much you can comfortably spend on monthly rent based on the standard 30% affordability rule.",
+                labelIncome: "Annual Gross Income ($)",
+                placeholderIncome: "e.g. 50000",
+                btnSubmit: "Calculate",
+                resText1: "Based on your income, your recommended maximum monthly rent is:",
+                resText2: "This budget allocates 30% of your pre-tax income toward housing costs."
+            },
+            ar: {
+                dir: "rtl",
+                htmlLang: "ar",
+                title: "حاسبة القدرة على تحمل الإيجار - دليل القادمين الجدد",
+                backBtn: "العودة إلى الأدلة →",
+                langToggle: "English",
+                heading: "حاسبة القدرة على تحمل الإيجار",
+                intro: "اكتشف المبلغ الذي يمكنك إنفاقه براحة على الإيجار الشهري بناءً على قاعدة الـ 30% القياسية للقدرة على تحمل التكاليف.",
+                labelIncome: "إجمالي الدخل السنوي ($)",
+                placeholderIncome: "مثال: 50000",
+                btnSubmit: "احسب",
+                resText1: "بناءً على دخلك، فإن الحد الأقصى الموصى به للإيجار الشهري هو:",
+                resText2: "تخصص هذه الميزانية 30% من دخلك قبل احتساب الضرائب لتكاليف السكن."
             }
+        };
 
-            const income = parseFloat(incomeInput);
-            const rent = parseFloat(rentInput);
+        let currentLang = 'en';
 
-            // Calculate ratios
-            const recommendedMaxRent = income * 0.30;
-            const rentPercentage = (rent / income) * 100;
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const t = translations[currentLang];
 
-            const formattedRecommended = recommendedMaxRent.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            const formattedPercentage = rentPercentage.toFixed(1);
+            // Update document layout orientation and lang attribute
+            const htmlTag = document.getElementById('html-tag');
+            htmlTag.setAttribute('lang', t.htmlLang);
+            htmlTag.setAttribute('dir', t.dir);
 
-            if (rent <= recommendedMaxRent) {
-                resultDiv.className = "result-box success-box";
-                titleDiv.innerText = "👍 Secure & Affordable";
-                textDiv.innerHTML = `This rent amounts to <strong>${formattedPercentage}%</strong> of your monthly income. It falls within the safe Canadian threshold. Your recommended maximum budget is <strong>$${formattedRecommended}</strong>.`;
-            } else {
-                resultDiv.className = "result-box danger-box";
-                titleDiv.innerText = "⚠️ High Financial Risk";
-                textDiv.innerHTML = `This rent consumes <strong>${formattedPercentage}%</strong> of your monthly income, exceeding the standard 30% baseline. Landlords might ask for a guarantor. Your recommended budget limit is <strong>$${formattedRecommended}</strong>.`;
+            // Update UI elements text content
+            document.getElementById('page-title').innerText = t.title;
+            document.getElementById('back-btn').innerText = t.backBtn;
+            document.getElementById('lang-toggle').innerText = t.langToggle;
+            document.getElementById('calc-heading').innerText = t.heading;
+            document.getElementById('calc-intro').innerText = t.intro;
+            document.getElementById('label-income').innerText = t.labelIncome;
+            document.getElementById('income').placeholder = t.placeholderIncome;
+            document.getElementById('btn-submit').innerText = t.btnSubmit;
+            document.getElementById('result-text-1').innerText = t.resText1;
+            document.getElementById('result-text-2').innerText = t.resText2;
+
+            // Update dynamic calculations if the results container is actively visible
+            const resultBox = document.getElementById('result');
+            if (resultBox.style.display === 'block') {
+                runCalculationLogic();
             }
+        }
+
+        function calculateRent(event) {
+            event.preventDefault();
+            runCalculationLogic();
+        }
+
+        function runCalculationLogic() {
+            const income = parseFloat(document.getElementById('income').value);
+            if (isNaN(income) || income <= 0) return;
+
+            // 30% rule calculation logic
+            const maxRent = (income * 0.30) / 12;
+
+            // Format numbers to matching language rules (English layout vs Western Arabic numerals)
+            const locale = currentLang === 'en' ? 'en-CA' : 'ar-AE';
+            const formattedRent = new Intl.NumberFormat(locale, {
+                style: 'currency',
+                currency: 'USD'
+            }).format(maxRent);
+
+            document.getElementById('result-amount').innerText = formattedRent;
+            document.getElementById('result').style.display = 'block';
         }
     </script>
 </body>
 </html>
+
