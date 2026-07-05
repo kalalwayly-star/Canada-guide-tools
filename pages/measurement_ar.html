@@ -84,20 +84,20 @@
             text-align: center;
             font-size: 18px;
         }
+        optgroup {
+            font-weight: bold;
+            color: #002F6C;
+        }
     </style>
 </head>
 <body>
-<!-- Put this on your English page (measurements.html) -->
-<div style="text-align: right; margin-bottom: 10px;">
-    <a href="measurements_ar.html" style="text-decoration: none; color: #002F6C; font-weight: bold; font-size: 14px;">العربية</a>
-</div>
-
-<!-- Put this on your Arabic page (measurements_ar.html) -->
-<div style="text-align: left; margin-bottom: 10px;">
-    <a href="measurements.html" style="text-decoration: none; color: #002F6C; font-weight: bold; font-size: 14px;">English</a>
-</div>
 
     <div class="calc-box">
+        <!-- Language Switcher -->
+        <div style="text-align: left; margin-bottom: 10px;">
+            <a href="measurements.html" style="text-decoration: none; color: #002F6C; font-weight: bold; font-size: 14px;">English</a>
+        </div>
+
         <a href="#" class="back-btn">← العودة للرئيسية</a>
         <h1>محول القياسات</h1>
         
@@ -109,20 +109,62 @@
         <div class="form-group">
             <label for="from-unit">من وحدة:</label>
             <select id="from-unit">
-                <option value="fahrenheit">فهرنهايت (°F)</option>
-                <option value="miles">ميل</option>
-                <option value="pounds">رطل (باوند)</option>
-                <option value="gallons">جالون</option>
+                <optgroup label="درجة الحرارة">
+                    <option value="fahrenheit">فهرنهايت (°F)</option>
+                    <option value="celsius">سيليزيوس (°C)</option>
+                </optgroup>
+                <optgroup label="الطول / المسافة">
+                    <option value="inches">بوصة (إنش)</option>
+                    <option value="feet">قدم</option>
+                    <option value="miles">ميل</option>
+                    <option value="centimeters">سنتيمتر (سم)</option>
+                    <option value="meters">متر (م)</option>
+                    <option value="kilometers">كيلومتر (كم)</option>
+                </optgroup>
+                <optgroup label="الوزن / الكتلة">
+                    <option value="ounces">أونصة (أوقية)</option>
+                    <option value="pounds">رطل (باوند)</option>
+                    <option value="grams">جرام (ج)</option>
+                    <option value="kilograms">كيلوجرام (كلغ)</option>
+                </optgroup>
+                <optgroup label="الحجم / السوائل">
+                    <option value="fluid_ounces">أونصة سائلة</option>
+                    <option value="cups">كوب</option>
+                    <option value="gallons">جالون</option>
+                    <option value="milliliters">مليلتر (مل)</option>
+                    <option value="liters">لتر (ل)</option>
+                </optgroup>
             </select>
         </div>
 
         <div class="form-group">
             <label for="to-unit">إلى وحدة:</label>
             <select id="to-unit">
-                <option value="celsius">سيليزيوس (°C)</option>
-                <option value="kilometers">كيلومتر</option>
-                <option value="kilograms">كيلوجرام</option>
-                <option value="liters">لتر</option>
+                <optgroup label="درجة الحرارة">
+                    <option value="celsius">سيليزيوس (°C)</option>
+                    <option value="fahrenheit">فهرنهايت (°F)</option>
+                </optgroup>
+                <optgroup label="الطول / المسافة">
+                    <option value="centimeters">سنتيمتر (سم)</option>
+                    <option value="meters">متر (م)</option>
+                    <option value="kilometers">كيلومتر (كم)</option>
+                    <option value="inches">بوصة (إنش)</option>
+                    <option value="feet">قدم</option>
+                    <option value="miles">ميل</option>
+                </optgroup>
+                <optgroup label="الوزن / الكتلة">
+                    <option value="grams">جرام (ج)</option>
+                    <option value="kilograms">كيلوجرام (كلغ)</option>
+                    <option value="ounces">أونصة (أوقية)</option>
+                    <option value="pounds">رطل (باوند)</option>
+                </optgroup>
+                <optgroup label="الحجم / السوائل">
+                    <option value="milliliters">مليلتر (مل)</option>
+                    <option value="liters">لتر (ل)</option>
+                    <option value="fluid_ounces">أونصة سائلة</option>
+                    <option value="cups">كوب</option>
+                    <option value="gallons">جالون</option>
+                </optgroup>
             </select>
         </div>
 
@@ -135,3 +177,4 @@
 
 </body>
 </html>
+
