@@ -378,6 +378,17 @@
     </section>
 
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+
+    await CalculatorEngine.init();
+
+    if (document.body.dataset.calculator === "rent") {
+        document.getElementById("calculateBtn").addEventListener("click", runRent);
+    }
+
+});
+</script>
 <script src="../assets/js/calculator-engine.js"></script>
 <script src="../assets/js/rent.js"></script>
 
