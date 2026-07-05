@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement Converter - Newcomer Guides</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F4F6F9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .calc-box { 
+            max-width: 500px; 
+            margin: 40px auto; 
+            padding: 30px; 
+            background: #ffffff; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+        }
+        .back-btn { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            text-decoration: none; 
+            color: #002F6C; 
+            font-weight: bold; 
+            font-size: 14px;
+        }
+        h1 {
+            margin-top: 0;
+            color: #002F6C;
+            font-size: 24px;
+            border-bottom: 2px solid #F4F6F9;
+            padding-bottom: 10px;
+        }
+        .form-group { 
+            margin-bottom: 18px; 
+        }
+        .form-group label { 
+            display: block; 
+            font-weight: 600; 
+            margin-bottom: 6px; 
+            font-size: 14px;
+        }
+        .form-group input, .form-group select { 
+            width: 100%; 
+            padding: 12px; 
+            box-sizing: border-box; 
+            border: 1px solid #cccccc; 
+            border-radius: 6px; 
+            font-size: 16px; 
+            transition: border-color 0.2s;
+            background-color: #fff;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #002F6C;
+            outline: none;
+        }
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            background: #002F6C; 
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #001A3E;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #EBF3FC;
+            border-radius: 6px;
+            color: #002F6C;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+        }
+        optgroup {
+            font-weight: bold;
+            color: #002F6C;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-box">
+        <!-- Language Switcher -->
+        <div style="text-align: right; margin-bottom: 10px;">
+            <a href="measurements_ar.html" style="text-decoration: none; color: #002F6C; font-weight: bold; font-size: 14px;">العربية</a>
+        </div>
+
+        <a href="#" class="back-btn">← Back to Home</a>
+        <h1>Measurement Converter</h1>
+        
+        <div class="form-group">
+            <label for="amount">Value:</label>
+            <input type="number" id="amount" placeholder="Enter value to convert">
+        </div>
+
+        <div class="form-group">
+            <label for="from-unit">From Unit:</label>
+            <select id="from-unit">
+                <optgroup label="Temperature">
+                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                    <option value="celsius">Celsius (°C)</option>
+                </optgroup>
+                <optgroup label="Length / Distance">
+                    <option value="inches">Inches (in)</option>
+                    <option value="feet">Feet (ft)</option>
+                    <option value="miles">Miles (mi)</option>
+                    <option value="centimeters">Centimeters (cm)</option>
+                    <option value="meters">Meters (m)</option>
+                    <option value="kilometers">Kilometers (km)</option>
+                </optgroup>
+                <optgroup label="Weight / Mass">
+                    <option value="ounces">Ounces (oz)</option>
+                    <option value="pounds">Pounds (lbs)</option>
+                    <option value="grams">Grams (g)</option>
+                    <option value="kilograms">Kilograms (kg)</option>
+                </optgroup>
+                <optgroup label="Volume / Liquid">
+                    <option value="fluid_ounces">Fluid Ounces (fl oz)</option>
+                    <option value="cups">Cups (c)</option>
+                    <option value="gallons">Gallons (gal)</option>
+                    <option value="milliliters">Milliliters (ml)</option>
+                    <option value="liters">Liters (L)</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="to-unit">To Unit:</label>
+            <select id="to-unit">
+                <optgroup label="Temperature">
+                    <option value="celsius">Celsius (°C)</option>
+                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                </optgroup>
+                <optgroup label="Length / Distance">
+                    <option value="centimeters">Centimeters (cm)</option>
+                    <option value="meters">Meters (m)</option>
+                    <option value="kilometers">Kilometers (km)</option>
+                    <option value="inches">Inches (in)</option>
+                    <option value="feet">Feet (ft)</option>
+                    <option value="miles">Miles (mi)</option>
+                </optgroup>
+                <optgroup label="Weight / Mass">
+                    <option value="grams">Grams (g)</option>
+                    <option value="kilograms">Kilograms (kg)</option>
+                    <option value="ounces">Ounces (oz)</option>
+                    <option value="pounds">Pounds (lbs)</option>
+                </optgroup>
+                <optgroup label="Volume / Liquid">
+                    <option value="milliliters">Milliliters (ml)</option>
+                    <option value="liters">Liters (L)</option>
+                    <option value="fluid_ounces">Fluid Ounces (fl oz)</option>
+                    <option value="cups">Cups (c)</option>
+                    <option value="gallons">Gallons (gal)</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <button type="button">Convert</button>
+
+        <div class="result-box" style="display: none;">
+            Result will appear here
+        </div>
+    </div>
+
+</body>
+</html>
