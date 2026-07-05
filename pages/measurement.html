@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Measurement Converter - Newcomer Guides</title>
+    <title data-i18n="title">Measurement Converter - Newcomer Guides</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         body {
@@ -88,92 +88,142 @@
             font-weight: bold;
             color: #002F6C;
         }
+        /* Dynamic alignment classes based on document direction */
+        html[dir="rtl"] .lang-wrapper { text-align: left; }
+        html[dir="ltr"] .lang-wrapper { text-align: right; }
     </style>
 </head>
 <body>
 
     <div class="calc-box">
-        <!-- Language Switcher -->
-        <div style="text-align: right; margin-bottom: 10px;">
-            <a href="measurement_ar.html" style="text-decoration: none; color: #002F6C; font-weight: bold; font-size: 14px;">العربية</a>
+        <!-- Language Switcher Button -->
+        <div class="lang-wrapper">
+            <button type="button" id="lang-toggle" style="width: auto; padding: 5px 10px; background: transparent; color: #002F6C; font-size: 14px; display: inline-block;">العربية</button>
         </div>
 
-        <a href="#" class="back-btn">← Back to Home</a>
-        <h1>Measurement Converter</h1>
+        <a href="#" class="back-btn" data-i18n="back_btn">← Back to Home</a>
+        <h1 data-i18n="heading">Measurement Converter</h1>
         
         <div class="form-group">
-            <label for="amount">Value:</label>
-            <input type="number" id="amount" placeholder="Enter value to convert">
+            <label for="amount" data-i18n="label_value">Value:</label>
+            <input type="number" id="amount" data-i18n-placeholder="placeholder_value" placeholder="Enter value to convert">
         </div>
 
         <div class="form-group">
-            <label for="from-unit">From Unit:</label>
+            <label for="from-unit" data-i18n="label_from">From Unit:</label>
             <select id="from-unit">
-                <optgroup label="Temperature">
-                    <option value="fahrenheit">Fahrenheit (°F)</option>
-                    <option value="celsius">Celsius (°C)</option>
+                <optgroup label="Temperature" data-i18n-label="group_temp">
+                    <option value="fahrenheit" data-i18n="opt_fahrenheit">Fahrenheit (°F)</option>
+                    <option value="celsius" data-i18n="opt_celsius">Celsius (°C)</option>
                 </optgroup>
-                <optgroup label="Length / Distance">
-                    <option value="inches">Inches (in)</option>
-                    <option value="feet">Feet (ft)</option>
-                    <option value="miles">Miles (mi)</option>
-                    <option value="centimeters">Centimeters (cm)</option>
-                    <option value="meters">Meters (m)</option>
-                    <option value="kilometers">Kilometers (km)</option>
+                <optgroup label="Length / Distance" data-i18n-label="group_length">
+                    <option value="inches" data-i18n="opt_inches">Inches (in)</option>
+                    <option value="feet" data-i18n="opt_feet">Feet (ft)</option>
+                    <option value="miles" data-i18n="opt_miles">Miles (mi)</option>
+                    <option value="centimeters" data-i18n="opt_centimeters">Centimeters (cm)</option>
+                    <option value="meters" data-i18n="opt_meters">Meters (m)</option>
+                    <option value="kilometers" data-i18n="opt_kilometers">Kilometers (km)</option>
                 </optgroup>
-                <optgroup label="Weight / Mass">
-                    <option value="ounces">Ounces (oz)</option>
-                    <option value="pounds">Pounds (lbs)</option>
-                    <option value="grams">Grams (g)</option>
-                    <option value="kilograms">Kilograms (kg)</option>
+                <optgroup label="Weight / Mass" data-i18n-label="group_weight">
+                    <option value="ounces" data-i18n="opt_ounces">Ounces (oz)</option>
+                    <option value="pounds" data-i18n="opt_pounds">Pounds (lbs)</option>
+                    <option value="grams" data-i18n="opt_grams">Grams (g)</option>
+                    <option value="kilograms" data-i18n="opt_kilograms">Kilograms (kg)</option>
                 </optgroup>
-                <optgroup label="Volume / Liquid">
-                    <option value="fluid_ounces">Fluid Ounces (fl oz)</option>
-                    <option value="cups">Cups (c)</option>
-                    <option value="gallons">Gallons (gal)</option>
-                    <option value="milliliters">Milliliters (ml)</option>
-                    <option value="liters">Liters (L)</option>
+                <optgroup label="Volume / Liquid" data-i18n-label="group_volume">
+                    <option value="fluid_ounces" data-i18n="opt_fluid_ounces">Fluid Ounces (fl oz)</option>
+                    <option value="cups" data-i18n="opt_cups">Cups (c)</option>
+                    <option value="gallons" data-i18n="opt_gallons">Gallons (gal)</option>
+                    <option value="milliliters" data-i18n="opt_milliliters">Milliliters (ml)</option>
+                    <option value="liters" data-i18n="opt_liters">Liters (L)</option>
                 </optgroup>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="to-unit">To Unit:</label>
+            <label for="to-unit" data-i18n="label_to">To Unit:</label>
             <select id="to-unit">
-                <optgroup label="Temperature">
-                    <option value="celsius">Celsius (°C)</option>
-                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                <optgroup label="Temperature" data-i18n-label="group_temp">
+                    <option value="celsius" data-i18n="opt_celsius">Celsius (°C)</option>
+                    <option value="fahrenheit" data-i18n="opt_fahrenheit">Fahrenheit (°F)</option>
                 </optgroup>
-                <optgroup label="Length / Distance">
-                    <option value="centimeters">Centimeters (cm)</option>
-                    <option value="meters">Meters (m)</option>
-                    <option value="kilometers">Kilometers (km)</option>
-                    <option value="inches">Inches (in)</option>
-                    <option value="feet">Feet (ft)</option>
-                    <option value="miles">Miles (mi)</option>
+                <optgroup label="Length / Distance" data-i18n-label="group_length">
+                    <option value="centimeters" data-i18n="opt_centimeters">Centimeters (cm)</option>
+                    <option value="meters" data-i18n="opt_meters">Meters (m)</option>
+                    <option value="kilometers" data-i18n="opt_kilometers">Kilometers (km)</option>
+                    <option value="inches" data-i18n="opt_inches">Inches (in)</option>
+                    <option value="feet" data-i18n="opt_feet">Feet (ft)</option>
+                    <option value="miles" data-i18n="opt_miles">Miles (mi)</option>
                 </optgroup>
-                <optgroup label="Weight / Mass">
-                    <option value="grams">Grams (g)</option>
-                    <option value="kilograms">Kilograms (kg)</option>
-                    <option value="ounces">Ounces (oz)</option>
-                    <option value="pounds">Pounds (lbs)</option>
+                <optgroup label="Weight / Mass" data-i18n-label="group_weight">
+                    <option value="grams" data-i18n="opt_grams">Grams (g)</option>
+                    <option value="kilograms" data-i18n="opt_kilograms">Kilograms (kg)</option>
+                    <option value="ounces" data-i18n="opt_ounces">Ounces (oz)</option>
+                    <option value="pounds" data-i18n="opt_pounds">Pounds (lbs)</option>
                 </optgroup>
-                <optgroup label="Volume / Liquid">
-                    <option value="milliliters">Milliliters (ml)</option>
-                    <option value="liters">Liters (L)</option>
-                    <option value="fluid_ounces">Fluid Ounces (fl oz)</option>
-                    <option value="cups">Cups (c)</option>
-                    <option value="gallons">Gallons (gal)</option>
+                <optgroup label="Volume / Liquid" data-i18n-label="group_volume">
+                    <option value="milliliters" data-i18n="opt_milliliters">Milliliters (ml)</option>
+                    <option value="liters" data-i18n="opt_liters">Liters (L)</option>
+                    <option value="fluid_ounces" data-i18n="opt_fluid_ounces">Fluid Ounces (fl oz)</option>
+                    <option value="cups" data-i18n="opt_cups">Cups (c)</option>
+                    <option value="gallons" data-i18n="opt_gallons">Gallons (gal)</option>
                 </optgroup>
             </select>
         </div>
 
-        <button type="button">Convert</button>
+        <button type="button" data-i18n="btn_convert">Convert</button>
 
-        <div class="result-box" style="display: none;">
+        <div class="result-box" style="display: none;" data-i18n="result_box">
             Result will appear here
         </div>
     </div>
 
-</body>
-</html>
+    <script>
+        let currentLang = 'en';
+        let translations = {};
+
+        // Fetch translations from your JSON file
+        async function loadTranslations() {
+            try {
+                const response = await fetch('translations.json');
+                translations = await response.json();
+                
+                // Read saved preference if it exists
+                const savedLang = localStorage.getItem('preferredLang');
+                if (savedLang) {
+                    setLanguage(savedLang);
+                }
+            } catch (error) {
+                console.error('Error loading translation file:', error);
+            }
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferredLang', lang);
+
+            // Toggle HTML attributes for RTL/LTR support
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Update language toggle button label
+            document.getElementById('lang-toggle').textContent = lang === 'ar' ? 'English' : 'العربية';
+
+            // Translate regular elements text
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Translate input placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.setAttribute('placeholder', translations[lang][key]);
+                }
+            });
+
+            </body>
+                </html>
