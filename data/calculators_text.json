@@ -16,7 +16,7 @@
     "surplus": "👍 Positive Monthly Surplus!",
     "surplus_desc": "Your total expenses are <strong>$$EXPENSES</strong>. You have <strong>$$BALANCE</strong> left over this month to save or spend elsewhere.",
     "deficit": "⚠️ Budget Deficit Detected",
-    "deficit_desc": "Your total expenses are <strong>$$EXPENSES</strong>. You are overspending by <strong>$$BALANCE</strong> relative to your income. Consider reviewing housing or transit costs."
+    "deficit_desc": "Your total expenses are <strong>$$EXPENSES</strong>. You are overspending by <strong>$$BALANCE</strong> relative to your income. Consider reviewing housing or transit costs.",
   },
   "ar": {
     "back": "⬅ العودة إلى الأدوات",
@@ -35,7 +35,7 @@
     "surplus": "👍 فائض شهري إيجابي!",
     "surplus_desc": "إجمالي نفقاتك هو <strong>$$EXPENSES</strong>. متبقي لديك <strong>$$BALANCE</strong> هذا الشهر للادخار أو الإنفاق في مكان آخر.",
     "deficit": "⚠️ تم رصد عجز في الميزانية",
-    "deficit_desc": "إجمالي نفقاتك هو <strong>$$EXPENSES</strong>. أنت تنفق أكثر من دخلك بمقدار <strong>$$BALANCE</strong>. يرجى مراجعة تكاليف السكن أو المواصلات."
+    "deficit_desc": "إجمالي نفقاتك هو <strong>$$EXPENSES</strong>. أنت تنفق أكثر من دخلك بمقدار <strong>$$BALANCE</strong>. يرجى مراجعة تكاليف السكن أو المواصلات.",
   },
   
   "en": {
@@ -68,7 +68,7 @@
     "opt_cups": "Cups (c)",
     "opt_gallons": "Gallons (gal)",
     "opt_milliliters": "Milliliters (ml)",
-    "opt_liters": "Liters (L)"
+    "opt_liters": "Liters (L)",
   },
   "ar": {
     "title": "محول القياسات - أدلة الوافدين الجدد",
@@ -100,7 +100,23 @@
     "opt_cups": "كوب",
     "opt_gallons": "جالون",
     "opt_milliliters": "مليلتر (مل)",
-    "opt_liters": "لتر (ل)"
+    "opt_liters": "لتر (ل)",
+  },
+  "ar": {
+    "title": "حاسبة التمويل العقاري - أدلة الوافدين الجدد",
+    "back_btn": "⬅ العودة إلى الأدوات",
+    "heading": "🇨🇦 حاسبة التمويل العقاري",
+    "label_price": "سعر المنزل ($)",
+    "label_downpayment": "الدفعة المقدمة ($)",
+    "label_rate": "نسبة الفائدة (%)",
+    "label_amortization": "فترة السداد (الاستهلاك)",
+    "opt_25": "25 سنة (قياسي)",
+    "opt_30": "30 سنة",
+    "opt_20": "20 سنة",
+    "opt_15": "15 سنة",
+    "btn_calculate": "احسب القسط الشهري",
+    "result_prefix": "القسط الشهري المتوقع:",
+    "alert_error": "لا يمكن أن تتجاوز الدفعة المقدمة سعر المنزل الأساسي."
   }
 
 }
