@@ -20,8 +20,6 @@
             margin: 0 auto;
         }
 
-        
-
         h1 {
             color: #002F6C;
             font-size: 32px;
@@ -122,16 +120,14 @@
             <p class="subtitle">حاسبات تفاعلية وقوائم تدقيق لمساعدتك في التخطيط لحياتك الجديدة في كندا.</p>
         </header>
 
-       <nav class="main-nav">
-    <ul>
-        <li><a href="guides_ar.html">الأدلة</a></li>
-        <li><a href="tools_ar.html">الأدوات</a></li>
-        <li><a href="aboutus_ar.html">من نحن</a></li>
-        <!-- FIXED: Points to the English page and correctly displays "English" -->
-        <li><a href="tools.html" style="color: #FFD700;">English</a></li>
-    </ul>
-</nav>
-
+        <nav class="main-nav">
+            <ul>
+                <li><a href="guides_ar.html">الأدلة</a></li>
+                <li><a href="tools_ar.html">الأدوات</a></li>
+                <li><a href="aboutus_ar.html">من نحن</a></li>
+                <li><a href="tools.html" style="color: #FFD700;">English</a></li>
+            </ul>
+        </nav>
 
         <!-- CATEGORY 1: FINANCES -->
         <div class="category-title">💰 التخطيط المالي والسكني</div>
@@ -180,7 +176,7 @@
                 </div>
             </div>
 
-            <div class="tool-card" onclick="openTool('measurement')">
+            <div class="tool-card" onclick="openTool('measurements')">
                 <div>
                     <div class="tool-icon">📐</div>
                     <div class="tool-name">محول المقاييس</div>
@@ -190,30 +186,20 @@
         </div>
     </div>
 
-    <!-- Script that updates navigation redirection to match Arabic layouts -->
     <script>
         function openTool(toolName) {
-    // Adds ?lang=ar to the URL to instantly flip the calculator into Arabic
-    if (toolName === "budget") {
-        window.location.href = "budget.html?lang=ar";
-    }
-    if (toolName === "rent") {
-        window.location.href = "rent.html?lang=ar";
-    }
-    if (toolName === "checklist") {
-        window.location.href = "checklist.html?lang=ar";
-    }
-    if (toolName === "mortgage") {
-        window.location.href = "mortgage.html?lang=ar";
-    }
-    if (toolName === "auto-loan") {
-        window.location.href = "auto-loan.html?lang=ar";
-    }
-    if (toolName === "measurement") {
-        window.location.href = "measurement.html?lang=ar";
-    }
-}
-
+            // Force save language selection so pages load directly into Arabic
+            localStorage.setItem('preferredLang', 'ar');
+            
+            // Fixed paths to resolve correctly with correct filenames
+            if (toolName === "budget") window.location.href = "budget.html?lang=ar";
+            if (toolName === "rent") window.location.href = "rent.html?lang=ar";
+            if (toolName === "checklist") window.location.href = "checklist.html?lang=ar";
+            if (toolName === "mortgage") window.location.href = "mortgage.html?lang=ar";
+            if (toolName === "auto-loan") window.location.href = "auto-loan.html?lang=ar";
+            if (toolName === "measurements") window.location.href = "measurements.html?lang=ar";
+        }
     </script>
 </body>
 </html>
+
