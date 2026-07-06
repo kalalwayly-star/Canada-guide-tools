@@ -388,6 +388,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 });
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Check if "?lang=ar" is inside the browser URL address bar
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    
+    // 2. Fallback to localStorage saved data if no URL parameter exists
+    const savedLang = localStorage.getItem('preferredLang');
+    
+    if (urlLang === 'ar' || savedLang === 'ar') {
+        setLanguage('ar');
+    } else {
+        setLanguage('en');
+    }
+});
 </script>
 <script src="../assets/js/calculator-engine.js"></script>
 <script src="../assets/js/rent.js"></script>
