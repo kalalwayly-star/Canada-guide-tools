@@ -274,6 +274,23 @@ document.getElementById("lang-toggle").addEventListener("click",()=>{
     setLanguage(next);
 
 });
+/* ==========================================
+   Expand / Collapse Details
+========================================== */
+
+document.querySelectorAll(".details-btn").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        const task = this.closest(".task");
+
+        task.classList.toggle("open");
+
+        this.textContent = task.classList.contains("open") ? "−" : "+";
+
+    });
+
+});
 
 /* ===========================================================
    Events
