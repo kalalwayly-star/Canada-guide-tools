@@ -1,60 +1,197 @@
-<div class="task">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-    <div class="task-header">
+<head>
 
-        <label class="task-label">
+    <meta charset="UTF-8">
 
-            <input type="checkbox" id="item1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <span class="task-title" data-i18n="item1">
-                Apply for a Social Insurance Number (SIN)
-            </span>
+    <title data-i18n="title">
+        Newcomer Essential Checklist - Newcomers Guides & Tools
+    </title>
 
-        </label>
+    <meta name="description"
+          content="A free newcomer checklist to help immigrants settle in Canada.">
 
-        <button class="details-btn" aria-label="Show details">
-            +
-        </button>
+    <!-- Main Website CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    </div>
+    <!-- Checklist Page CSS -->
+    <link rel="stylesheet" href="assets/css/checklist.css">
 
-    <div class="task-details">
+</head>
 
-        <div class="detail-row">
-            <strong>📍 Where</strong>
-            <p data-i18n="item1_where">
-                Visit your nearest Service Canada Centre.
-            </p>
-        </div>
 
-        <div class="detail-row">
-            <strong>📄 Documents</strong>
-            <p data-i18n="item1_docs">
-                Passport and your immigration document (Work Permit, Study Permit, Confirmation of Permanent Residence, etc.).
-            </p>
-        </div>
+<body>
 
-        <div class="detail-row">
-            <strong>⏱ Processing Time</strong>
-            <p data-i18n="item1_time">
-                Usually issued during your visit.
-            </p>
-        </div>
 
-        <div class="detail-row">
-            <strong>💡 Tip</strong>
-            <p data-i18n="item1_tip">
-                Keep your SIN private. Only provide it when legally required.
-            </p>
-        </div>
+<header class="top-header">
 
-        <a href="guides/sin.html"
-           class="guide-link"
-           data-i18n="read_guide">
-            Read Full Guide →
+    <div class="container">
+
+
+        <a href="tools.html"
+           class="back-btn"
+           data-i18n="back_btn">
+
+            ⬅ Back to Tools
+
         </a>
 
+
+        <button type="button"
+                id="lang-toggle"
+                class="language-btn">
+
+            العربية
+
+        </button>
+
+
     </div>
 
-</div>
-  
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- Title Section -->
+
+    <section class="hero">
+
+
+        <h1 data-i18n="heading">
+
+            📋 Newcomer Essential Checklist
+
+        </h1>
+
+
+        <p data-i18n="intro">
+
+            Complete these important settlement tasks as you begin your new life in Canada. Your progress is saved automatically.
+
+        </p>
+
+
+    </section>
+
+
+
+
+    <!-- Progress Section -->
+
+
+    <section class="progress-section">
+
+
+        <div class="progress-header">
+
+            <span data-i18n="progress">
+
+                Progress
+
+            </span>
+
+
+            <span id="progressText">
+
+                0%
+
+            </span>
+
+
+        </div>
+
+
+
+        <div class="progress-container">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <!-- Checklist Items Loaded From JSON -->
+
+
+    <section id="checklistContainer">
+
+
+        <!-- Items will be loaded from checklist.json -->
+
+
+    </section>
+
+
+
+
+
+    <!-- Action Buttons -->
+
+
+    <section class="buttons">
+
+
+        <button id="printBtn"
+                class="secondary-btn"
+                data-i18n="print_btn">
+
+            🖨 Print Checklist
+
+        </button>
+
+
+
+        <button id="resetBtn"
+                class="danger-btn"
+                data-i18n="reset_btn">
+
+            Reset Checklist
+
+        </button>
+
+
+    </section>
+
+
+
+</main>
+
+
+
+
+
+<footer class="footer">
+
+
+    <p>
+
+        © 2026 Newcomers Guides & Tools
+
+    </p>
+
+
+</footer>
+
+
+
+
+
+<!-- Checklist JavaScript -->
+
+<script src="assets/js/checklist.js"></script>
+
+
+</body>
+
+</html>
