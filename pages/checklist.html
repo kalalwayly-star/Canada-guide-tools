@@ -1,131 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Newcomer Essential Checklist | Newcomers Guides & Tools</title>
+
+    <meta name="description" content="Free newcomer checklist for Canada. Track your settlement progress including SIN, healthcare, banking, housing, jobs, transportation, and more.">
+
+    <link rel="stylesheet" href="assets/css/checklist.css">
+</head>
+
 <body>
 
-<div class="checklist-box">
+<header class="top-header">
+    <div class="container">
 
-    <!-- Language Selector -->
-    <div class="lang-wrapper" style="margin-bottom:10px;">
-        <button type="button"
-                id="lang-toggle"
-                style="width:auto;padding:5px 10px;background:transparent;color:#002F6C;font-size:14px;border:none;font-weight:bold;cursor:pointer;">
+        <a href="tools.html" class="back-btn" data-i18n="back_btn">
+            ← Back to Tools
+        </a>
+
+        <button id="lang-toggle" class="language-btn">
             العربية
         </button>
+
     </div>
+</header>
 
-    <a href="tools.html" class="back-btn" data-i18n="back_btn">
-        ⬅ Back to Tools
-    </a>
+<main class="container">
 
-    <h1 data-i18n="heading">
-        📋 Newcomer Essential Checklist
-    </h1>
+    <section class="hero">
 
-    <p class="intro" data-i18n="intro">
-        Complete these important settlement tasks as you begin your new life in Canada. Your progress is saved automatically in your browser.
-    </p>
+        <h1 data-i18n="heading">
+            📋 Newcomer Essential Checklist
+        </h1>
+
+        <p data-i18n="intro">
+            Complete these important settlement tasks as you begin your new life in Canada. Your progress is automatically saved in your browser.
+        </p>
+
+    </section>
 
     <!-- Progress -->
-    <div class="progress-container">
-        <div id="progress" class="progress-bar"></div>
-    </div>
 
-    <!-- ===================== -->
-    <!-- First 48 Hours -->
-    <!-- ===================== -->
+    <section class="progress-section">
 
-    <div class="section-title" data-i18n="sec_1_title">
-        First 48 Hours
-    </div>
+        <div class="progress-header">
 
-    <label class="task-item">
-        <input type="checkbox" id="item1" onchange="updateProgress()">
-        <span class="task-text" data-i18n="item_1_text">
-            <strong>Apply for a Social Insurance Number (SIN):</strong>
-            Required to work legally in Canada and access many government programs and benefits.
-        </span>
-    </label>
+            <span data-i18n="progress">
+                Progress
+            </span>
 
-    <label class="task-item">
-        <input type="checkbox" id="item2" onchange="updateProgress()">
-        <span class="task-text" data-i18n="item_2_text">
-            <strong>Get a Canadian Phone Number:</strong>
-            You'll need one for employers, banks, landlords, schools, healthcare providers, and government services.
-        </span>
-    </label>
+            <span id="progressText">
+                0%
+            </span>
 
-    <!-- ===================== -->
-    <!-- First 2 Weeks -->
-    <!-- ===================== -->
+        </div>
 
-    <div class="section-title" data-i18n="sec_2_title">
-        First 2 Weeks
-    </div>
+        <div class="progress-container">
 
-    <label class="task-item">
-        <input type="checkbox" id="item3" onchange="updateProgress()">
-        <span class="task-text" data-i18n="item_3_text">
-            <strong>Open a Bank Account:</strong>
-            Bring your identification and immigration documents to open a Canadian bank account and receive a debit card.
-        </span>
-    </label>
+            <div id="progressBar"></div>
 
-    <label class="task-item">
-        <input type="checkbox" id="item4" onchange="updateProgress()">
-        <span class="task-text" data-i18n="item_4_text">
-            <strong>Apply for Provincial Health Coverage:</strong>
-            Register for your province's healthcare plan as soon as you're eligible. Processing times vary by province.
-        </span>
-    </label>
+        </div>
 
-    <label class="task-item">
-        <input type="checkbox" id="item5" onchange="updateProgress()">
-        <span class="task-text" data-i18n="item_5_text">
-            <strong>Check Your Driver's Licence Eligibility:</strong>
-            Find out whether you can exchange your foreign licence or if you'll need to complete written and road tests.
-        </span>
-    </label>
+    </section>
 
-    <!-- ===================== -->
-    <!-- First Month -->
-    <!-- ===================== -->
+    <!-- Checklist -->
 
-    <div class="section-title" data-i18n="sec_3_title">
-        First Month
-    </div>
+    <section id="checklistContainer">
 
-    <label class="task-item">
-        <input type="checkbox" id="item6" onchange="updateProgress()">
-        <span class="task-text" data-i18n="item_6_text">
-            <strong>Find Permanent Housing:</strong>
-            Search for a rental home that fits your budget and carefully review the lease agreement before signing.
-        </span>
-    </label>
+        <!-- ============================= -->
+        <!-- First 48 Hours -->
+        <!-- ============================= -->
 
-    <label class="task-item">
-        <input type="checkbox" id="item7" onchange="updateProgress()">
-        <span class="task-text" data-i18n="item_7_text">
-            <strong>Register Children for School:</strong>
-            Contact your local school division or district to enroll eligible children in school.
-        </span>
-    </label>
+        <div class="category">
 
-    <label class="task-item">
-        <input type="checkbox" id="item8" onchange="updateProgress()">
-        <span class="task-text" data-i18n="item_8_text">
-            <strong>Create a Canadian-Style Resume:</strong>
-            Prepare a resume that follows Canadian standards and begin applying for jobs that match your skills.
-        </span>
-    </label>
+            <h2 data-i18n="cat1">
+                First 48 Hours
+            </h2>
 
-    <button class="reset-btn"
-            onclick="resetChecklist()"
-            data-i18n="btn_reset">
-        Reset Checklist Progress
-    </button>
+            <label class="task">
+                <input type="checkbox" id="item1">
+                <span data-i18n="item1">
+                    Apply for a Social Insurance Number (SIN)
+                </span>
+            </label>
 
-</div>
+            <label class="task">
+                <input type="checkbox" id="item2">
+                <span data-i18n="item2">
+                    Get a Canadian phone number
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item3">
+                <span data-i18n="item3">
+                    Secure temporary accommodation
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item4">
+                <span data-i18n="item4">
+                    Keep important documents organized
+                </span>
+            </label>
+
+        </div>
+
+        <!-- ============================= -->
+        <!-- First Two Weeks -->
+        <!-- ============================= -->
+
+        <div class="category">
+
+            <h2 data-i18n="cat2">
+                First 2 Weeks
+            </h2>
+
+            <label class="task">
+                <input type="checkbox" id="item5">
+                <span data-i18n="item5">
+                    Open a Canadian bank account
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item6">
+                <span data-i18n="item6">
+                    Apply for provincial health coverage
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item7">
+                <span data-i18n="item7">
+                    Register for newcomer settlement services
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item8">
+                <span data-i18n="item8">
+                    Get a transit card
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item9">
+                <span data-i18n="item9">
+                    Create a CRA account
+                </span>
+            </label>
+
+        </div>
+
+        <!-- ============================= -->
+        <!-- First Month -->
+        <!-- ============================= -->
+
+        <div class="category">
+
+            <h2 data-i18n="cat3">
+                First Month
+            </h2>
+
+            <label class="task">
+                <input type="checkbox" id="item10">
+                <span data-i18n="item10">
+                    Find permanent housing
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item11">
+                <span data-i18n="item11">
+                    Register children for school
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item12">
+                <span data-i18n="item12">
+                    Prepare a Canadian-style resume
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item13">
+                <span data-i18n="item13">
+                    Start applying for jobs
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item14">
+                <span data-i18n="item14">
+                    Find a family doctor
+                </span>
+            </label>
+
+        </div>
+
+        <!-- ============================= -->
+        <!-- First Three Months -->
+        <!-- ============================= -->
+
+        <div class="category">
+
+            <h2 data-i18n="cat4">
+                First 3 Months
+            </h2>
+
+            <label class="task">
+                <input type="checkbox" id="item15">
+                <span data-i18n="item15">
+                    Exchange your driver's licence if eligible
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item16">
+                <span data-i18n="item16">
+                    Build your Canadian credit history
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item17">
+                <span data-i18n="item17">
+                    Apply for government benefits if eligible
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item18">
+                <span data-i18n="item18">
+                    Improve your English or French skills
+                </span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" id="item19">
+                <span data-i18n="item19">
+                    Join local community groups
+                </span>
+            </label>
+
+        </div>
+
+    </section>
+
+    <!-- Buttons -->
+
+    <section class="buttons">
+
+        <button id="expandBtn" class="secondary-btn">
+            Show Details
+        </button>
+
+        <button id="printBtn" class="secondary-btn">
+            Print Checklist
+        </button>
+
+        <button id="resetBtn" class="danger-btn">
+            Reset Checklist
+        </button>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <p>
+        © 2026 Newcomers Guides & Tools
+    </p>
+
+</footer>
+
+<script src="assets/js/checklist.js"></script>
 
 </body>
 </html>
-        
-           
-
+  
